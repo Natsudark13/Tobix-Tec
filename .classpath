@@ -13,5 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="LIB/java-sdk-6.14.0-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sergi/OneDrive/Documentos/GitHub/Tobix-Tec/LIB/java-sdk-6.14.0-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
