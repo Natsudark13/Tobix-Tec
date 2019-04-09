@@ -56,15 +56,6 @@ private DBConnection db;
 	    con.close();
 	}
 	
-	public void deleteActivity(String name) throws SQLException {
-	 	Connection con = db.openConnection();
-	    String sql = "delete from " + "Activity" + " where ActivityName = "+"'"+name+"'"+"";
-	    try (PreparedStatement pstmt = con.prepareStatement(sql)) {
-	
-	            pstmt.execute();	                                 
-	    }
-	    con.close();
-	}
 	
 	public void insertBlock(String topic, String description, String date, String timeZone) throws SQLException {
 	 	Connection con = db.openConnection();
@@ -157,6 +148,17 @@ private DBConnection db;
         }
         con.close();
     }
+	
+	public void deleteActivity(String name) throws SQLException {
+	 	Connection con = db.openConnection();
+	    String sql = "delete from " + "Activity" + " where ActivityName = "+"'"+name+"'"+"";
+	    try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+	
+	            pstmt.execute();	                                 
+	    }
+	    con.close();
+	}
+	
 	
 	public void deleteSupervisorActivity(String name,int id) throws SQLException {
 	 	Connection con = db.openConnection();
