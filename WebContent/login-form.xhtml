@@ -8,13 +8,22 @@
 <title><ui:insert name ="pageTitle">Page Title </ui:insert></title>
 </h:head> 
 
-<body> 
+	<body> 
 
-	<h:form>
-		First Name: <h:inputText value="#{user.firstName}" />
-		Last Name: <h:inputText value="#{user.lastName}" />
-		<h:commandButton action="#{formController.onSubmit()}" value="Submit" />
-	</h:form>	
+	<ui:composition template="/layout/commonLayout.xhtml" >
 	
-</body> 
+	
+	<ui:define name="content">
+		<h:form>
+			First Name: <h:inputText value="#{user.firstName}" />
+			Last Name: <h:inputText value="#{user.lastName}" />
+			<h:commandButton action="#{formController.onSubmit()}" value="Submit" />
+		</h:form>	
+		<h:message /> 
+		</ui:define>
+		
+	
+	</ui:composition>
+	
+	</body> 
 </html>
