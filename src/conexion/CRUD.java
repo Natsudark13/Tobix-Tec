@@ -8,12 +8,11 @@ import java.text.SimpleDateFormat;
 
 public class CRUD {
 
-private DBConnection db;
+	private DB2 db;
 	
-	public CRUD(DBConnection db){
+	public CRUD(DB2 db){
 		this.db = db;
 	}
-	
 	public void insertActivity(String type, String name, String date, String sTime, String fTime, String description) throws SQLException {
 	 	Connection con = db.openConnection();
         String sql = "insert into " + "Activity" + " values( " + "?,?,?,?,?,?" + ")";

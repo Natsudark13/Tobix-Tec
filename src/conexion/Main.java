@@ -6,10 +6,10 @@ public class Main {
 
 	public static void main(String [ ] args)
 	{
-		DBConnection db = new DBConnection();
+		DB2 db = new DB2();
 		CRUD x = new CRUD(db);
 		try {
-			x.deleteActivity("Activida Informativa");
+			x.insertActivity("Informativa", "IBM", "20/2/2019", "22:00", "23:00", "IBM DB2 vs SQL server");;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
