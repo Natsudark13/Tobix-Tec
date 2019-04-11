@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+	<h:head>
+	<title><ui:insert name="pageTitle">Ingresar</ui:insert></title>
+
+	</h:head> 
+
+
+
+
+<body> 
+
+	<h:form>
+		Correo: <h:inputText id="ingresocorreo" value="#{administrador.correo}" required="true"/>
+		Contraseña: <h:inputText id="contrasena"  value="#{administrador.contrasena}" required="true" />
+		
+		<h:commandButton action="#{administradorLoginController.onSubmit()}" value="Submit" />
+		<h:message for="ingresocorreo"/>
+		<h:message for="contrasena"/>
+		
+	</h:form>	
+
+</body> 
+</html>

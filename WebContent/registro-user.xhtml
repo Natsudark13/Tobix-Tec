@@ -5,7 +5,8 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head></h:head> 
-<h:body> 
+<body> 
+
 
 	<f:view>
 	<h2>Bienvenido, ingrese sus datos para completar el registro</h2>
@@ -13,7 +14,8 @@
 	<h:form>
 		
 			<h:outputLabel for="cedula" value="Identificacion: "/>
-			<h:inputText id="cedula"  value="#{asistente.cedula}"/>
+			<h:inputText id="cedula"  value="#{asistente.cedula}" required="true"/>
+				<h:message for="cedula"/>
 			<br></br>
 			<h:outputLabel for="sexo" value="Sexo: "/>
 			<h:inputText id="sexo" value="#{asistente.sexo}"/>
@@ -31,7 +33,7 @@
 			<h:inputText id="segundoApellido" value="#{asistente.primerApellido}"/>
 			<br></br>
 			<h:outputLabel for="contraseña" value="Contraseña: "/>
-			<h:inputText id="contraseña" value="#{asistente.contrasenaAsistente}"/>		
+			<h:inputSecret id="contraseña" value="#{asistente.contrasenaAsistente}"/>		
 			<br></br>	
 			<h:outputLabel value="Entidad de procedencia: "/>
 			<h:selectOneMenu value="#{asistente.entidadProcedencia}">
@@ -47,6 +49,6 @@
 			
 		 </h:form>
 		</f:view>
-	
-</h:body> 
+
+</body> 
 </html>

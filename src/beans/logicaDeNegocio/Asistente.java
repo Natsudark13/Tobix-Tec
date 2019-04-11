@@ -20,7 +20,7 @@ public class Asistente extends Usuario{
 	}
 
 
-	public String getContrasena() {
+	public String getContrasenaAsistente() {
 		return contrasenaAsistente;
 	}
 

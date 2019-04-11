@@ -4,13 +4,13 @@ package beans.logicaDeNegocio;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-public abstract class Usuario{
+public class Usuario{
 	protected String cedula;
-	protected String nombre;
+	protected String nombre="sara";
 	protected String primerApellido;
 	protected String segundoApellido;
 	protected String sexo;
-	protected String correo;
+	protected String correo="sara";
 	
 	
 	public Usuario(){

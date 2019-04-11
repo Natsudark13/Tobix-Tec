@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title><ui:insert name = "pageTitle">Tobix Tec </ui:insert></title>
+
+</h:head> 
+<body> 
+<h2> Bienvenido a esta nueva edición del TOB</h2>
+<h3>Inicie sesión para continuar</h3>
+
+	<h:form>
+	<h:commandLink action="login-user" value="Ingresar como usuario asistente" /> <br></br>
+	<h:commandLink action="login-administrador" value="Ingresar como administrador" /><br></br>
+	
+	<br></br>
+	
+		First Name: <h:inputText value="#{user.firstName}" />
+		Last Name: <h:inputText value="#{user.lastName}" />
+		<h:commandButton action="#{formController.onSubmit()}" value="Submit" />
+	</h:form>	
+
+
+</body> 
+</html>
