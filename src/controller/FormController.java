@@ -5,7 +5,7 @@ import javax.faces.context.FacesContext;
 
 import beans.User;
 
-@SuppressWarnings("deprecation")
+//@SuppressWarnings("deprecation")
 @ManagedBean
 public class FormController {
 

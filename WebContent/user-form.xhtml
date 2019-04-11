@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+
+	<f:view>
+	<h2>Bienvenido, ingrese sus datos para completar el registro</h2>
+		<hr/>
+	<h:form>
+		
+			<h:outputLabel for="cedula" value="Identificacion: "/>
+			<h:inputText id="cedula"  value="#{asistente.cedula}"/>
+			<br></br>
+			<h:outputLabel for="sexo" value="Sexo: "/>
+			<h:inputText id="sexo" value="#{asistente.sexo}"/>
+			<br></br>
+			<h:outputLabel for="correo" value="Correo electrónico: "/>
+			<h:inputText id="correo" value="#{asistente.correo}"/>
+			<br></br>
+			<h:outputLabel for="nombre" value="Nombre: "/>
+			<h:inputText id="nombre" value="#{asistente.nombre}"/>
+			<br></br>
+			<h:outputLabel for="primerApellido" value="Apellido 1: "/>
+			<h:inputText id="primerApellido" value="#{asistente.primerApellido}"/>
+			<br></br>
+			<h:outputLabel for="segundoApellido" value="Apellido 2: "/>
+			<h:inputText id="segundoApellido" value="#{asistente.primerApellido}"/>
+			<br></br>
+			<h:outputLabel for="contraseña" value="Contraseña: "/>
+			<h:inputText id="contraseña" value="#{asistente.contrasenaAsistente}"/>		
+			<br></br>	
+			<h:outputLabel value="Entidad de procedencia: "/>
+			<h:selectOneMenu value="#{asistente.entidadProcedencia}">
+				<f:selectItem itemValue="Opcion1" itemLabel="Académica"/>
+				<f:selectItem itemValue="Opcion2" itemLabel="Empresarial"/>
+				<f:selectItem itemValue="Opcion3" itemLabel="Participación Personal"/>
+				</h:selectOneMenu>
+				<br></br>
+		
+			<h:commandButton action="#{asistente.saludarUsuario()}" value= "Crear Usuario"/>
+			<br></br>
+			<h:outputText value="#{asistente.confirmacion}"/>
+			
+		 </h:form>
+		</f:view>
+	
+</h:body> 
+</html>
