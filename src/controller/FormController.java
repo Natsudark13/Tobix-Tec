@@ -1,6 +1,6 @@
 package controller;
 
-import javax.faces.bean.ManagedBean;
+import javax.faces.bean.*;
 import javax.faces.context.FacesContext;
 
 import beans.User;
