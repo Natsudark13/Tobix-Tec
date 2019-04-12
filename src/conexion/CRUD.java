@@ -182,12 +182,12 @@ public class CRUD {
         
 	 	while ( rs.next() ) {
 	 		
-	 		list.add("TYPE");
-	 		list.add("NAME");
-	 		list.add("ACTIVITYDATE");
-	 		list.add("STARTTIME");
-	 		list.add("FINALTIME");
-	 		list.add("DESCRIPTION");
+	 		list.add(rs.getString("TYPE"));
+	 		list.add(rs.getString("NAME"));
+	 		list.add(rs.getDate("ACTIVITYDATE"));
+	 		list.add(rs.getString("STARTTIME"));
+	 		list.add(rs.getString("FINALTIME"));
+	 		list.add(rs.getString("DESCRIPTION"));
 	 		
             String lastName = rs.getString("Lname");
             System.out.println(lastName);
@@ -198,16 +198,16 @@ public class CRUD {
    
     }
 	
-	public ArrayList<Object> select_Name_Actividades() throws SQLException {
+	public ArrayList<String> select_Name_Actividades() throws SQLException {
 	 	Connection con = db.openConnection();
 	 	Statement stmt = con.createStatement();
         String sql = "Select * from activity";
-        ArrayList<Object> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
 	 	try(ResultSet rs = stmt.executeQuery(sql)) {
         
 	 	while ( rs.next() ) {
 	 		
-	 		list.add("NAME");
+	 		list.add(rs.getString("NAME"));
            
         }
 	 	}
@@ -232,16 +232,16 @@ public class CRUD {
     }
 	
 	
-	public ArrayList<Object> select_IDUsuarios_Actividad(String nameActivity) throws SQLException {
+	public ArrayList<Integer> select_IDUsuarios_Actividad(String nameActivity) throws SQLException {
 	 	Connection con = db.openConnection();
 	 	Statement stmt = con.createStatement();
         String sql = "Select USER_ID from ACTIVITY_USER where ACTIVITY_NAME = "+"'"+nameActivity+"'"+"";
-        ArrayList<Object> list = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<>();
 	 	try(ResultSet rs = stmt.executeQuery(sql)) {
         
 	 		while ( rs.next() ) {
 	 		
-	 		list.add("USER_ID");
+	 		list.add(rs.getInt("USER_ID"));
 
 	 		}
 	 	}
@@ -251,16 +251,16 @@ public class CRUD {
     }
 	
 	
-	public ArrayList<Object> select_Comments_Actividad(String nameActivity) throws SQLException {
+	public ArrayList<String> select_Comments_Actividad(String nameActivity) throws SQLException {
 	 	Connection con = db.openConnection();
 	 	Statement stmt = con.createStatement();
         String sql = "Select DESCRIPTION from COMMENTS where ACTIVITYNAME = "+"'"+nameActivity+"'"+"";
-        ArrayList<Object> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
 	 	try(ResultSet rs = stmt.executeQuery(sql)) {
         
 	 		while ( rs.next() ) {
 	 		
-	 		list.add("DESCRIPTION");
+	 		list.add(rs.getString("DESCRIPTION"));
 
 	 		}
 	 	}
