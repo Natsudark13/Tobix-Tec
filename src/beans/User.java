@@ -1,10 +1,9 @@
 package beans;
-
 import javax.faces.bean.*;
 //import javax.annotation.ManagedBean;
 
 
-@SuppressWarnings("deprecation")
+//@SuppressWarnings("deprecation")
 @ManagedBean 
 public class User {
 

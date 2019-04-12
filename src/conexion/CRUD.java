@@ -2,17 +2,24 @@ package conexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class CRUD {
 
-private DBConnection db;
+	private DB2 db;
 	
-	public CRUD(DBConnection db){
+	public CRUD(DB2 db){
 		this.db = db;
 	}
+	
+	
+	// Inserts to the database
+	
 	
 	public void insertActivity(String type, String name, String date, String sTime, String fTime, String description) throws SQLException {
 	 	Connection con = db.openConnection();
@@ -118,7 +125,7 @@ private DBConnection db;
 	
 	public void insertUser(int id, String sex, String email, String name, String lastN, String lastN2, String password, String identityP) throws SQLException {
 	 	Connection con = db.openConnection();
-        String sql = "insert into " + "User" + " values( " + "?,?,?,?,?,?,?,?" + ")";
+        String sql = "insert into " + "TOBIX_USER" + " values( " + "?,?,?,?,?,?,?,?" + ")";
         try (PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 				pstmt.setObject(1, id);
@@ -135,7 +142,21 @@ private DBConnection db;
         con.close();
     }
 	
-	public void insertComments(String id,String name, String description) throws SQLException {
+	public void insertUserActivity(int id, String name) throws SQLException {
+	 	Connection con = db.openConnection();
+        String sql = "insert into " + "ACTIVITY_USER" + " values( " + "?,?" + ")";
+        try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+				pstmt.setObject(1, id);
+	            pstmt.setObject(2, name);
+	           
+
+	            pstmt.execute();	                                 
+        }
+        con.close();
+    }
+	
+	public void insertComments(int id,String name, String description) throws SQLException {
 	 	Connection con = db.openConnection();
         String sql = "insert into " + "Comments" + " values( " + "?,?,?" + ")";
         try (PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -148,6 +169,128 @@ private DBConnection db;
         }
         con.close();
     }
+	
+	
+	// Selects to the data bases.
+	
+	public ArrayList<Object> select_ALL_Actividades() throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "SELECT Lname FROM Customers WHERE Snum = 2001";
+        ArrayList<Object> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 	while ( rs.next() ) {
+	 		
+	 		list.add(rs.getString("TYPE"));
+	 		list.add(rs.getString("NAME"));
+	 		list.add(rs.getDate("ACTIVITYDATE"));
+	 		list.add(rs.getString("STARTTIME"));
+	 		list.add(rs.getString("FINALTIME"));
+	 		list.add(rs.getString("DESCRIPTION"));
+	 		
+            String lastName = rs.getString("Lname");
+            System.out.println(lastName);
+        }
+	 	}
+        con.close();
+        return list;
+   
+    }
+	
+	public ArrayList<String> select_Name_Actividades() throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select * from activity";
+        ArrayList<String> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 	while ( rs.next() ) {
+	 		
+	 		list.add(rs.getString("NAME"));
+           
+        }
+	 	}
+        con.close();
+        return list;
+    }
+	
+	
+	public String select_Description_Actividades(String nameActivity) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select description from activity where name = "+"'"+nameActivity+"'"+"";
+        String description;
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 		rs.next();
+            description = rs.getString("description");
+            
+	 	}
+        con.close();
+        return description;
+    }
+	
+	
+	public ArrayList<Integer> select_IDUsuarios_Actividad(String nameActivity) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select USER_ID from ACTIVITY_USER where ACTIVITY_NAME = "+"'"+nameActivity+"'"+"";
+        ArrayList<Integer> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 		while ( rs.next() ) {
+	 		
+	 		list.add(rs.getInt("USER_ID"));
+
+	 		}
+	 	}
+        con.close();
+        return list;
+   
+    }
+	
+	
+	public ArrayList<String> select_Comments_Actividad(String nameActivity) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select DESCRIPTION from COMMENTS where ACTIVITYNAME = "+"'"+nameActivity+"'"+"";
+        ArrayList<String> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 		while ( rs.next() ) {
+	 		
+	 		list.add(rs.getString("DESCRIPTION"));
+
+	 		}
+	 	}
+        con.close();
+        return list;
+   
+    }
+	
+	public int select_ExisteUsuario(String name, String password) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select USERID from TOBIX_USER where PASSWORD = "+"'"+password+"'"+" and NAME = "+"'"+name+"'"+"";
+        int description;
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 		if(rs.isClosed() == false){
+	 			description = 0; 
+	 		}
+	 		else{
+	 		rs.next();
+            description = rs.getInt("USERID");
+	 		}
+            
+	 	}
+        con.close();
+        return description;
+    }
+	
+	
+	//Delete to the database
 	
 	public void deleteActivity(String name) throws SQLException {
 	 	Connection con = db.openConnection();
