@@ -7,14 +7,15 @@
 <h:head></h:head> 
 <body> 
 	
-	<h1>Ingresar como usuario asistente</h1>
-	<h1>Inicie sesión para continuar</h1>
+	<h2>Ingresar como usuario asistente</h2>
+	<h4>Inicie sesión para continuar</h4>
 	<h:form>
-		Correo electrónico: <h:inputText value="sara" />
-		Contraseña: <h:inputText value="f" type="password" />
+		Correo electrónico: <h:inputText value="sara" /><br></br><br></br>
+		Contraseña: <h:inputText value="f" type="password" /><br></br><br></br>
+		<h:commandButton action="#{gestionAsistenteController.botonInicioSesion()}" value="Iniciar Sesión" />
 		
 		<h4>Aún no tienes una cuenta?</h4>
-		<h:commandLink  action="registro-Asistente" value="Registrarse"/>	
+		<h:commandLink action="#{loginAsistenteController.botonRegistrar()}" value="Registrarse" />
 	
 	</h:form>
 

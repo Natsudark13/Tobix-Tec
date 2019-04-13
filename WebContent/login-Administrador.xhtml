@@ -7,5 +7,17 @@
 <h:head></h:head> 
 <body> 
 
+	<h2>Ingresar como usuario administrador</h2>
+	<h4>Inicie sesión para continuar</h4>
+	<h:form>
+		Correo electrónico: <h:inputText value="admin" /><br></br><br></br>
+		Contraseña: <h:inputText value="administrador" type="password" /><br></br><br></br>
+		<h:commandButton action="#{gestionAsistenteController.botonInicioSesion()}" value="Iniciar Sesión" />
+		
+		<h4>Aún no tienes una cuenta?</h4>
+		<h:commandLink action="#{loginAsistenteController.botonRegistrar()}" value="Registrarse" />
+	
+	</h:form>
+
 </body> 
 </html>

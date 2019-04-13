@@ -3,6 +3,7 @@ package conexion;
 import java.sql.SQLException;
 
 import beans.Actividad;
+import beans.Actividad2;
 
 public class Main {
 
@@ -10,7 +11,7 @@ public class Main {
 	{
 		DB2 db = new DB2();
 		CRUD x = new CRUD(db);
-		Actividad xx = new Actividad();
+		Actividad2 xx = new Actividad2();
 		try {
 			/*x.insertActivity("Informativa", "IBM", "20/2/2019", "20:00", "21:00", "DB2 vs SQL server");
 			x.insertActivity("Interactiva", "IBM-Watson", "20/2/2019", "19:00", "20:00", "IBM Watson what it is and how it works");
