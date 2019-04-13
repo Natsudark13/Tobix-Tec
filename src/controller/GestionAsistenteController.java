@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 
 //@SuppressWarnings("deprecation")
 @ManagedBean
-public class gestionAsistenteController {
+public class GestionAsistenteController {
 	public String botonInicioSesion(){
 		
 		
