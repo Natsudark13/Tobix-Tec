@@ -15,4 +15,11 @@ public class Administrador extends Usuario{
 	public void setContrasena(String pContrasenaAdministrador) {
 		this.contrasenaAdministrador = pContrasenaAdministrador;
 	}
+	
+	public Administrador obtenerAdministrador() {
+		String [] datosAdministrador = {"901090654", "Brandon", "Carter", "Estrada", "Masculino", "brandon@gmail.com", "admin"};
+		//metodo de select de la base
+		Administrador administrador = new Administrador(datosAdministrador[0],datosAdministrador[1],datosAdministrador[2],datosAdministrador[3],datosAdministrador[4],datosAdministrador[5],datosAdministrador[6]);
+		return administrador;
+	}
 }

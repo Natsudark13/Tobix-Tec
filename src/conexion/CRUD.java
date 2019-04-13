@@ -13,8 +13,8 @@ public class CRUD {
 
 	private DB2 db;
 	
-	public CRUD(DB2 db){
-		this.db = db;
+	public CRUD(){
+		this.db = new DB2();
 	}
 	
 	
@@ -269,10 +269,10 @@ public class CRUD {
    
     }
 	
-	public int select_ExisteUsuario(String name, String password) throws SQLException {
+	public int select_ExisteUsuario(String email, String password) throws SQLException {
 	 	Connection con = db.openConnection();
 	 	Statement stmt = con.createStatement();
-        String sql = "Select USERID from TOBIX_USER where PASSWORD = "+"'"+password+"'"+" and NAME = "+"'"+name+"'"+"";
+        String sql = "Select USERID from TOBIX_USER where PASSWORD = "+"'"+password+"'"+" and EMAIL = "+"'"+email+"'"+"";
         int description;
 	 	try(ResultSet rs = stmt.executeQuery(sql)) {
         

@@ -9,8 +9,8 @@ public class Main {
 
 	public static void main(String [ ] args)
 	{
-		DB2 db = new DB2();
-		CRUD x = new CRUD(db);
+	
+		CRUD x = new CRUD();
 		Actividad2 xx = new Actividad2();
 		try {
 			/*x.insertActivity("Informativa", "IBM", "20/2/2019", "20:00", "21:00", "DB2 vs SQL server");
