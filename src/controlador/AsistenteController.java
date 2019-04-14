@@ -21,6 +21,10 @@ public class AsistenteController {
 		return "registro-Asistente.xhtml";
 	}
 	
+	public String paginaPrincipal() {
+		return "principalAdministrador.xhtml";
+	}
+	
 	
 	public String botonLoginAsistente(){
 		

@@ -9,17 +9,17 @@
 	<h2>Registrar Nuevo Usuario Asistente</h2>
 	<h4>Por favor, llene los espacios en blanco con su información personal: </h4>
 	<h:form>
-		cedula:  <h:inputText value="" required="true"/><br></br><br></br>
-		sexo:  <h:inputText value="" /><br></br><br></br>
-		correo:  <h:inputText value="" /><br></br><br></br>
-		nombre:  <h:inputText value="" /><br></br><br></br>
-		apellido1:  <h:inputText value="" /><br></br><br></br>
-		apellido2:  <h:inputText value="" /><br></br><br></br>
-		constraseña:  <h:inputText value="" type="password" />
+		cedula:  <h:inputText value="#{asistente.cedula}" required="true"/><br></br><br></br>
+		sexo:  <h:inputText value="#{asistente.sexo}" /><br></br><br></br>
+		correo:  <h:inputText value="#{asistente.correo}" /><br></br><br></br>
+		nombre:  <h:inputText value="#{asistente.nombre}" /><br></br><br></br>
+		apellido1:  <h:inputText value="#{asistente.primerApellido}" /><br></br><br></br>
+		apellido2:  <h:inputText value="#{asistente.segundoApellido}" /><br></br><br></br>
+		constraseña:  <h:inputText value="#{asistente.contrasenaAsistente}" type="password" />
 		
-		<h:commandButton action="#{gestionAdministradorController.botonInicioSesion()}" value="Iniciar Sesión" />
+		<h:commandButton onclick="JavaScript: alert('Realizar registro?')"  action="#{asistenteController.botonLoginAsistente}" value="Registrarse" />
 		
-		onclick = "alert('Hello World!');" 
+		
 		
 	</h:form>
 

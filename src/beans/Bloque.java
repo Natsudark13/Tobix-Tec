@@ -1,6 +1,14 @@
 package beans;
 import java.util.ArrayList;
+
 import java.util.Date;
+
+import javax.faces.bean.*;
+//import javax.annotation.ManagedBean;
+
+
+//@SuppressWarnings("deprecation")
+@ManagedBean  
 
 public class Bloque {
 	private String tematica;
@@ -9,6 +17,10 @@ public class Bloque {
 	private String franjaHoraria;
 	private ArrayList <Actividad> actividades;
 	
+	
+	public Bloque() {
+		
+	}
 	public Bloque(String pTematica, String pDescripcionTematica, Date pFechaBloque, String pFranjaHoraria){
 		setTematica(pTematica);
 		setDescripcionTematica(pDescripcionTematica);
