@@ -74,10 +74,10 @@ public class Actividad {
 	public void setTipoActividad(String pTipoActividad) {
 		this.tipoActividad = pTipoActividad;
 	}
-	public Date getFechaActividad() {
+	public String getFechaActividad() {
 		return fechaActividad;
 	}
-	public void setFechaActividad(Date pFechaActividad) {
+	public void setFechaActividad(String pFechaActividad) {
 		this.fechaActividad = pFechaActividad;
 	}
 	public String getHoraInicio() {
