@@ -275,13 +275,14 @@ public class CRUD {
         String sql = "Select USERID from TOBIX_USER where PASSWORD = "+"'"+password+"'"+" and EMAIL = "+"'"+email+"'"+"";
         int description;
 	 	try(ResultSet rs = stmt.executeQuery(sql)) {
-        
-	 		if(rs.isClosed() == false){
-	 			description = 0; 
+	 		rs.next();
+	 		if(rs.isClosed() != true){
+	 			
+	 			
+	            description = rs.getInt("USERID");
 	 		}
 	 		else{
-	 		rs.next();
-            description = rs.getInt("USERID");
+	 			description = 0; 
 	 		}
             
 	 	}
@@ -291,7 +292,7 @@ public class CRUD {
 	
 	
 	//Delete to the database
-	
+
 	public void deleteActivity(String name) throws SQLException {
 	 	Connection con = db.openConnection();
 	    String sql = "delete from " + "Activity" + " where ActivityName = "+"'"+name+"'"+"";
