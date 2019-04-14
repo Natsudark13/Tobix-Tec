@@ -1,5 +1,10 @@
 package beans;
+//import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 
+
+//@SuppressWarnings("deprecation")
+@ManagedBean 
 public class Usuario {
 	protected String cedula;
 	protected String nombre;
@@ -17,6 +22,10 @@ public class Usuario {
 		setCorreo(pCorreo);
 	}
 
+	public Usuario() {
+		
+	}
+	
 	public String getCedula() {
 		return cedula;
 	}

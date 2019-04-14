@@ -30,7 +30,7 @@ public class Actividad2 implements Ordenamiento{
 	
 	public ArrayList<String> listaActividadesPorComentarios(){
 		DB2 db = new DB2();
-		CRUD x = new CRUD(db);
+		CRUD x = new CRUD();
 		int contador = 0;
 		ArrayList<String> listaOrdenada = new ArrayList<>();
 		try {
@@ -61,7 +61,7 @@ public class Actividad2 implements Ordenamiento{
 	
 	public ArrayList<String> listaActividadesPorUsuarios(){
 		DB2 db = new DB2();
-		CRUD x = new CRUD(db);
+		CRUD x = new CRUD();
 		int contador = 0;
 		ArrayList<String> listaOrdenada = new ArrayList<>();
 		try {
