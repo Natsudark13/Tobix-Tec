@@ -11,17 +11,22 @@
 	<h:form>
 		cedula:  <h:inputText id="cedula" value="#{asistente.cedula}" required="true"/><br></br><br></br>
 			
-				 <h:message for="cedula" style="color:red" />
+				 <h:message for="cedula" style="color:red" /><br></br><br></br>
 		
-		sexo:   <h:selectOneMenu id="sexo" value="#{asistente.sexo}" > 
+		sexo:   <h:selectOneMenu id="sexo" value="#{asistente.sexo}" required="true" > 
   				 <f:selectItem itemValue = "F"  /> 
    				 <f:selectItem itemValue = "M"  />
    				 <f:selectItem itemValue = "Indefinido"  /></h:selectOneMenu> <br></br><br></br>
-		correo:  <h:inputText value="#{asistente.correo}" /><br></br><br></br>
-		nombre:  <h:inputText value="#{asistente.nombre}" /><br></br><br></br>
-		apellido1:  <h:inputText value="#{asistente.primerApellido}" /><br></br><br></br>
-		apellido2:  <h:inputText value="#{asistente.segundoApellido}" /><br></br><br></br>
-		constraseña:  <h:inputText value="#{asistente.contrasenaAsistente}" type="password" /><br></br><br></br>
+		correo:  <h:inputText id="correo" value="#{asistente.correo}" required="true"/><br></br><br></br>
+				 <h:message for="correo" style="color:red" /><br></br><br></br>
+			
+		nombre:  <h:inputText id="nombre" value="#{asistente.nombre}"  required="true"/><br></br><br></br>
+				<h:message for="nombre" style="color:red" /><br></br><br></br>
+		apellido1:  <h:inputText id="ap1" value="#{asistente.primerApellido}" required="true" /><br></br><br></br>
+				<h:message for="ap1" style="color:red" /><br></br><br></br>
+		apellido2:  <h:inputText id="ap2" value="#{asistente.segundoApellido}"  required="true"/><br></br><br></br>
+				<h:message for="ap2" style="color:red" /><br></br>
+		constraseña:  <h:inputText value="#{asistente.contrasenaAsistente}" type="password" required="true" /><br></br><br></br>
 		entidad de procedencia: <h:selectOneMenu id="Entidad_procedencia" value="#{asistente.entidadProcedencia}" > 
   				 <f:selectItem itemValue = "Academica"  /> 
    				 <f:selectItem itemValue = "Empresarial"  /> 
