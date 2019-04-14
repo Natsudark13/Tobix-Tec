@@ -8,6 +8,21 @@ import beans.Asistente;
 //@SuppressWarnings("deprecation")
 @ManagedBean
 public class AsistenteController {
+	
+	public String crearCuenta(){
+		// get the user values from the input form.
+		FacesContext context = FacesContext.getCurrentInstance();
+		Asistente asistente = context.getApplication().evaluateExpressionGet(context, "#{asistente}", Asistente.class);
+		// show the user data in console
+		System.out.println("look: "+asistente.getCedula()+" "+asistente.getNombre()+" "+asistente.getPrimerApellido()+" "+asistente.getCorreo()+" "+asistente.getContrasenaAsistente());
+		asistente.crearAsistente();
+		// put the user object into the POST request 
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("asistente", asistente);
+		
+		//Show the next page
+		return "login-Asistente.xhtml";
+	}
+	
 	public String botonInicioSesion(){
 		
 		
@@ -23,13 +38,6 @@ public class AsistenteController {
 	
 	public String paginaPrincipal() {
 		return "principalAdministrador.xhtml";
-	}
-	
-	
-	public String botonLoginAsistente(){
-		
-		//Show the next page
-		return "login-Asistente.xhtml";
 	}
 	
 	public String logIN(){

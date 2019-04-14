@@ -14,11 +14,11 @@ public class Asistente extends Usuario{
 	private String entidadProcedencia;
 	
 	
-	public Asistente (String pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo, String pContrasenaAsistente, String pEntidadProcedencia){
+	/*public Asistente (String pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo, String pContrasenaAsistente, String pEntidadProcedencia){
 		super (pCedula, pNombre, pPrimerApellido, pSegundoApellido, pSexo, pCorreo);
 		setContrasenaAsistente(pContrasenaAsistente);
 		setEntidadProcedencia(pEntidadProcedencia);
-	}
+	}*/
 	
 	public Asistente() {
 		super();
@@ -37,7 +37,15 @@ public class Asistente extends Usuario{
 	}
 	
 
-
+	public void crearAsistente() {
+		CRUD crud = new CRUD();
+		try {
+			crud.insertUser(this.cedula, this.sexo, this.correo, this.nombre, this.primerApellido, this.segundoApellido, this.contrasenaAsistente, this.entidadProcedencia);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public String getContrasenaAsistente() {
 		return contrasenaAsistente;

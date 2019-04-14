@@ -6,31 +6,31 @@ import javax.faces.bean.ManagedBean;
 //@SuppressWarnings("deprecation")
 @ManagedBean 
 public class Usuario {
-	protected String cedula;
+	protected int cedula;
 	protected String nombre;
 	protected String primerApellido;
 	protected String segundoApellido;
 	protected String sexo;
 	protected String correo;
 	
-	public Usuario (String pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo){
+	/*public Usuario (int pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo){
 		setCedula(pCedula);
 		setNombre(pNombre);
 		setPrimerApellido(pPrimerApellido);
 		setSegundoApellido(pSegundoApellido);
 		setSexo(pSexo);
 		setCorreo(pCorreo);
-	}
+	}*/
 
 	public Usuario() {
 		
 	}
 	
-	public String getCedula() {
+	public int getCedula() {
 		return cedula;
 	}
 
-	public void setCedula(String pCedula) {
+	public void setCedula(int pCedula) {
 		this.cedula = pCedula;
 	}
 

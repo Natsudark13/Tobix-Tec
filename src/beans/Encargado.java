@@ -10,12 +10,16 @@ public class Encargado extends Usuario {
 	private String institucionProcedencia;
 	
 	
-	public Encargado (String pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo, int pExperiencia, String pInstitucionProcedencia){
+	/*public Encargado (String pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo, int pExperiencia, String pInstitucionProcedencia){
 		super (pCedula, pNombre, pPrimerApellido, pSegundoApellido, pSexo, pCorreo);
 		setExperiencia(pExperiencia);
 		setInstitucionProcedencia(pInstitucionProcedencia);
-	}
+	}*/
 
+	public Encargado () {
+		super();
+		
+	}
 
 	public int getExperiencia() {
 		return experiencia;
