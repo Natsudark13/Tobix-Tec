@@ -291,6 +291,27 @@ public class CRUD {
     }
 	
 	
+	public int select_ExisteAdmin(String email, String password) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select ID from ADMINISTRADOR where PASSWORD = "+"'"+password+"'"+" and EMAIL = "+"'"+email+"'"+"";
+        int description;
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+	 		rs.next();
+	 		if(rs.isClosed() != true){
+	 			
+	 			
+	            description = rs.getInt("ID");
+	 		}
+	 		else{
+	 			description = 0; 
+	 		}
+            
+	 	}
+        con.close();
+        return description;
+    }
+	
 	//Delete to the database
 
 	public void deleteActivity(String name) throws SQLException {
