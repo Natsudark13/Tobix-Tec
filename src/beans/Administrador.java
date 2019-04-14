@@ -2,8 +2,10 @@ package beans;
 
 import java.sql.SQLException;
 
-import conexion.CRUD;
+import javax.faces.bean.ManagedBean;
 
+import conexion.CRUD;
+@ManagedBean 
 public class Administrador extends Usuario{
 	private String contrasenaAdministrador;
 	

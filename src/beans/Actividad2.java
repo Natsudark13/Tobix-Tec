@@ -9,7 +9,7 @@ import java.util.Objects;
 import conexion.CRUD;
 import conexion.DB2;
 
-public class Actividad2 implements Ordenamiento{
+public class Actividad2 {
 
 	private String nombreActivad;
 	private String tipoActividad;
@@ -20,12 +20,6 @@ public class Actividad2 implements Ordenamiento{
 	
 	public Actividad2(){
 		
-	}
-
-	@Override
-	public boolean menorQue(Object pComparable) {
-		
-		return false;
 	}
 	
 	public ArrayList<String> listaActividadesPorComentarios(){
