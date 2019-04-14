@@ -1,5 +1,10 @@
 package beans;
 
+import javax.annotation.ManagedBean;
+
+@ManagedBean
+
+
 public class Encargado extends Usuario {
 	private int experiencia;
 	private String institucionProcedencia;
