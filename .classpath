@@ -13,12 +13,5 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/brand/Documents/GitHub/Tobix-Tec/LIB/java/db2jcc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/brand/Documents/GitHub/Tobix-Tec/LIB/java/db2jcc4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/brand/Documents/GitHub/Tobix-Tec/LIB/activation.jar" sourcepath="LIB"/>
-	<classpathentry kind="lib" path="C:/Users/brand/Documents/GitHub/Tobix-Tec/LIB/httpclient-4.0.3.jar" sourcepath="LIB"/>
-	<classpathentry kind="lib" path="C:/Users/brand/Documents/GitHub/Tobix-Tec/LIB/mailapi-1.5.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/brand/Documents/GitHub/Tobix-Tec/LIB/smtp-1.4.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/brand/Documents/GitHub/Tobix-Tec/LIB/javax.faces-2.1.7.jar" sourcepath="LIB/javax.faces-2.1.7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

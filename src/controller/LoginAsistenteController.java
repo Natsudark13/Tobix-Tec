@@ -1,9 +1,9 @@
 package controller;
 
 import javax.faces.bean.ManagedBean;
-//import javax.faces.context.FacesContext;
+import javax.faces.context.FacesContext;
 
-//import beans.User;
+import beans.User;
 
 //@SuppressWarnings("deprecation")
 @ManagedBean
