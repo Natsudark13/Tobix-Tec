@@ -1,4 +1,4 @@
-package controller2;
+package controlador;
 
 import java.sql.SQLException;
 
