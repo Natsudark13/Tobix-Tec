@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"> 
 
 <h:head></h:head> 
 <body> 
@@ -12,9 +13,12 @@
 	<h:form id="registro">
 		
 		Bloque:  <h:selectOneMenu id="BloquePerteneciente" value ="#{bloque.tematica}" > 
-  				 <f:selectItem itemValue = "Cloud Technology"  /> 
+					<c:forEach items="#{bloque.bloquesE}" var="item" varStatus="itemIndex">
+    				<f:selectItem itemValue="#{bloque.getBloquesIndex( itemIndex.index ) }"/>
+  					</c:forEach> 
 				</h:selectOneMenu> <br></br><br></br>
-		
+				
+		Nombre:  <h:inputText id="nombre" value="#{actividad.nombreActividad}" /><br></br><br></br>
 		Fecha:  <h:inputText id="fecha" value="#{actividad.fechaActividad}" /><br></br><br></br>
 		HoraInicio:  <h:inputText id="horaInicio" value="#{actividad.horaInicio}" /><br></br><br></br>
 		HoraFinal:  <h:inputText id="horaFinal" value="#{actividad.horaFinal}" /><br></br><br></br>
@@ -28,7 +32,7 @@
 				 <f:selectItem itemValue = "Conversatorio" />
 				 <f:selectItem itemValue = "Story-telling"  /> 
 				</h:selectOneMenu> <br></br><br></br>
-		<h:commandButton id="registrar" action="#{asistenteController.paginaPrincipal()}" value="Registrar Actividad" />
+		<h:commandButton id="registrar" action="#{actividadController.registrarActividad()}" value="Registrar Actividad" />
 		
 		
 	</h:form>

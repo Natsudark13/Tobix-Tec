@@ -17,10 +17,16 @@ public class Bloque {
 	private String fechaBloque;
 	private String franjaHoraria;
 	private ArrayList <Actividad> actividades;
-	
+	private ArrayList<String> bloquesE;
 	
 	public Bloque() {
-		
+		CRUD crud = new CRUD();
+		try {
+			this.bloquesE = crud.select_Tipo_Bloque();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/*public Bloque(String pTematica, String pDescripcionTematica, Date pFechaBloque, String pFranjaHoraria){
@@ -38,6 +44,18 @@ public class Bloque {
 	public String registrarActividad(Actividad pActividad){
 		actividades.add(pActividad);
 		return "Actividad registrada";
+	}
+	
+	public String getBloquesIndex(int ndx_) {
+		return bloquesE.get(ndx_);
+	}
+	
+	public ArrayList<String> getBloquesE() {
+		return bloquesE;
+	}
+
+	public void setBloquesE(ArrayList<String> bloquesE) {
+		this.bloquesE = bloquesE;
 	}
 
 	public String getTematica() {
