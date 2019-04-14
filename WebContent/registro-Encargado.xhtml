@@ -10,15 +10,16 @@
 	<h2>Registrar encargado</h2>
 	<h4>Por favor, llene los espacios en blanco con su información personal: </h4>
 	<h:form>
-		cedula:  <h:inputText value="" required="true"/><br></br><br></br>
-		sexo:  <h:inputText value="#{asistente.sexo}" /><br></br><br></br>
-		correo:  <h:inputText value="#{asistente.correo}" /><br></br><br></br>
-		nombre:  <h:inputText value="#{asistente.nombre}" /><br></br><br></br>
-		apellido1:  <h:inputText value="#{asistente.primerApellido}" /><br></br><br></br>
-		apellido2:  <h:inputText value="#{asistente.segundoApellido}" /><br></br><br></br>
-		constraseña:  <h:inputText value="#{asistente.contrasenaAsistente}" type="password" />
+		cedula:  <h:inputText value="#{encargado.cedula}" required="true"/><br></br><br></br>
+		sexo:  <h:inputText value="#{encargado.sexo}" /><br></br><br></br>
+		correo electrónico:  <h:inputText value="#{encargado.correo}" /><br></br><br></br>
+		nombre:  <h:inputText value="#{encargado.nombre}" /><br></br><br></br>
+		apellido1:  <h:inputText value="#{encargado.primerApellido}" /><br></br><br></br>
+		apellido2:  <h:inputText value="#{encargado.segundoApellido}" /><br></br><br></br>
+		Años de experiencia:  <h:inputText value="#{encargado.experiencia}" /><br></br><br></br>
+		Entidad de procedencia:  <h:inputText value="#{encargado.institucionProcedencia}" /><br></br><br></br>
 		
-		<h:commandButton onclick="JavaScript: alert('Realizar registro?')"  action="#{asistenteController.botonLoginAsistente}" value="Registrarse" />
+		<h:commandButton onclick="JavaScript: alert('Realizar registro?')"  action="#{administradorController.botonInicioSesion()}" value="Registrar encargado" />
 		
 		
 		

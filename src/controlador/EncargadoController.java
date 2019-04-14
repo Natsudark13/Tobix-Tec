@@ -6,9 +6,6 @@ import javax.faces.bean.ManagedBean;
 
 public class EncargadoController {
 
-	public EncargadoController() {
-		
-	}
 	
 	public String btnRegistro() {
 		return"registro-Encargado.xhtml";
