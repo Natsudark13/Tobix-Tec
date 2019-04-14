@@ -1,17 +1,20 @@
-package controller;
+package controller2;
 
 import javax.faces.bean.ManagedBean;
-//import javax.faces.context.FacesContext;
 import javax.faces.context.FacesContext;
 
 import beans.Asistente;
-import beans.User;
-
-import beans.User;
 
 //@SuppressWarnings("deprecation")
 @ManagedBean
-public class LoginAsistenteController {
+public class AsistenteController {
+	public String botonInicioSesion(){
+		
+		
+		//Show the next page
+		return "principalAsistente.xhtml";
+	}
+	
 	public String botonRegistrar(){
 		
 		//Show the next page
@@ -47,5 +50,4 @@ public class LoginAsistenteController {
 		//Show the next page
 		return URL;
 	}
-
 }

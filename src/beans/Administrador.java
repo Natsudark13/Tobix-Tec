@@ -1,21 +1,40 @@
 package beans;
 
+import java.sql.SQLException;
+
+import conexion.CRUD;
+
 public class Administrador extends Usuario{
 	private String contrasenaAdministrador;
 	
 	public Administrador (String pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo, String pContrasena){
 		super (pCedula, pNombre, pPrimerApellido, pSegundoApellido, pSexo, pCorreo);
-		setContrasena(pContrasena);
+		setContrasenaAdministrador(pContrasena);
 	}
 
+	public Administrador () {
+		super();
+	}
+	
 	public String getContrasenaAdministrador() {
 		return contrasenaAdministrador;
 	}
 
-	public void setContrasena(String pContrasenaAdministrador) {
+	public void setContrasenaAdministrador(String pContrasenaAdministrador) {
 		this.contrasenaAdministrador = pContrasenaAdministrador;
 	}
 	
+	public int logIn(String email, String password) {
+		CRUD crud = new CRUD();
+		int x = 0;
+		try {
+			 x = crud.select_ExisteAdmin(email, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return x;
+	}
 	public Administrador obtenerAdministrador() {
 		String [] datosAdministrador = {"901090654", "Brandon", "Carter", "Estrada", "Masculino", "brandon@gmail.com", "admin"};
 		//metodo de select de la base

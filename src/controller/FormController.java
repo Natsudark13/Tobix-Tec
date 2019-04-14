@@ -1,4 +1,4 @@
-package controller;
+package controller2;
 
 import javax.faces.bean.*;
 import javax.faces.context.FacesContext;

@@ -13,10 +13,10 @@
 	<h:form>
 		Correo electrónico: <h:inputText value="#{asistente.correo}" /><br></br><br></br>
 		Contraseña: <h:inputText value="#{asistente.contrasenaAsistente}" type="password" /><br></br><br></br>
-		<h:commandButton action="#{loginAsistenteController.logIN}" value="Iniciar Sesión" />
+		<h:commandButton action="#{asistenteController.logIN}" value="Iniciar Sesión" />
 		
 		<h4>Aún no tienes una cuenta?</h4>
-		<h:commandLink onclick = "alert('Hello World!');" action="#{loginAsistenteController.botonRegistrar()}" value="Registrarse" />
+		<h:commandLink onclick = "alert('Hello World!');" action="#{asistenteController.botonRegistrar()}" value="Registrarse" />
 	
 	</h:form>
 
