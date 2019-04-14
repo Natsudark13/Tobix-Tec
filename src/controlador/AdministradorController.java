@@ -37,7 +37,7 @@ public class AdministradorController {
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("administrador", administrador);
 		String URL;
 		if(administrador.logIn(administrador.getCorreo(), administrador.getContrasenaAdministrador()) == 0) {
-			URL = "login-Administrador.xhtml";
+			URL = "login-FallidoAdministrador.xhtml";
 		}
 		else {
 			URL = "principalAdministrador.xhtml";

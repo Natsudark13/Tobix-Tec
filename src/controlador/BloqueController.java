@@ -10,7 +10,7 @@ public class BloqueController {
 	public String btnBloque(){
 		
 		//Show the next page
-		return "crear-Bloque.xhtml";
+		return "registro-Bloque.xhtml";
 	}
 
 }

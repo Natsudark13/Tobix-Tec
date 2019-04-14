@@ -54,7 +54,7 @@ public class AsistenteController {
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("asistente", asistente);
 		String URL;
 		if(asistente.logIn(asistente.getCorreo(), asistente.getContrasenaAsistente()) == 0) {
-			URL = "login-Asistente.xhtml";
+			URL = "login-FallidoAsistente.xhtml";
 		}
 		else {
 			URL = "principalAsistente.xhtml";
