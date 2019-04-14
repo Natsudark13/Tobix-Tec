@@ -3,7 +3,7 @@ package controlador;
 import java.sql.SQLException;
 
 import beans.Actividad;
-import beans.Actividad2;
+
 import conexion.CRUD;
 
 public class Main {
@@ -12,7 +12,6 @@ public class Main {
 	{
 	
 		CRUD x = new CRUD();
-		Actividad2 xx = new Actividad2();
 		try {
 			/*x.insertActivity("Informativa", "IBM", "20/2/2019", "20:00", "21:00", "DB2 vs SQL server");
 			x.insertActivity("Interactiva", "IBM-Watson", "20/2/2019", "19:00", "20:00", "IBM Watson what it is and how it works");
@@ -39,10 +38,16 @@ public class Main {
 			x.insertUserActivity(201799852, "IBM-Watson");
 			x.insertUserActivity(2015238884, "IBM-DB2");
 			x.insertUserActivity(201799852, "IBM-DB2");
-			x.insertUserActivity(2015002456, "IBM-DB2");*/
+			x.insertUserActivity(2015002456, "IBM-DB2");
 			System.out.println(x.select_ExisteUsuario("Natsudark13@gmail.com", "1234"));
 			System.out.println(xx.listaActividadesPorComentarios().get(0));
-			System.out.println(xx.listaActividadesPorUsuarios().get(0));
+			System.out.println(xx.listaActividadesPorUsuarios().get(0));*/
+			x.insertComments("IBM", "Me encanto toda la actividad eso fue increible");
+			x.insertComments("IBM-Watson", "No entendi mucho, pero no estuvo mal la verdad");
+			x.insertComments("IBM-Watson", "No entendi nada, los tutoriales se ven faciles, pero a mi no me sirve, odio a watson");
+			x.insertComments("IBM-DB2", "Wow no sabia que DB2 era tan util,lo voy empezar a usar a partir de ahora");
+			x.insertComments("IBM-DB2", "No me gusto DB2, talvez porque soy muy pro SQL server");
+			x.insertComments("IBM-DB2", "Me gusto DB2, lo voy a utilizar en las clases a partir de ahora");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

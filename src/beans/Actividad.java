@@ -2,7 +2,6 @@ package beans;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import conexion.CRUD;
 
@@ -35,10 +34,73 @@ public class Actividad {
 		crud.insertActivity(tipoActividad, nombreActividad, fechaActividad, horaInicio, horaFinal, descripcionActividad);
 	}
 	
-	public String registrarComentario(String pDescripcionComentario){
-		Comentario comentario = new Comentario(pDescripcionComentario);
-		comentarios.add(comentario);
-		return "Comentario registrado";
+	public void cargarComentarios() throws SQLException{
+		Comentario comentario = new Comentario();
+		int contador = 0;
+		while(comentario.verComentarios(nombreActividad).size() != contador) {
+		comentarios.add(new Comentario(comentario.verComentarios(nombreActividad).get(contador)));
+		contador++;
+		}
+	}
+	
+	public ArrayList<String> listaActividadesPorComentarios(){
+		CRUD x = new CRUD();
+		int contador = 0;
+		ArrayList<String> listaOrdenada = new ArrayList<>();
+		try {
+			ArrayList<String> listaP = x.select_Name_Actividades();
+			while(contador != listaP.size()){
+				//System.out.println(listaP.get(contador));
+				
+				if( listaOrdenada.isEmpty()){
+					listaOrdenada.add(0, listaP.get(contador));
+				}
+				if(x.select_Comments_Actividad(listaP.get(contador)).size() > x.select_Comments_Actividad(listaOrdenada.get(0)).size()){
+					listaOrdenada.add(0, listaP.get(contador));
+				}
+				else{
+					listaOrdenada.add(listaP.get(contador));
+				}
+				contador++;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//Collections.reverse(listaOrdenada);
+		return listaOrdenada;
+		
+	}
+	
+	public ArrayList<String> listaActividadesPorUsuarios(){
+		CRUD x = new CRUD();
+		int contador = 0;
+		ArrayList<String> listaOrdenada = new ArrayList<>();
+		try {
+			ArrayList<String> listaP = x.select_Name_Actividades();
+			while(contador != listaP.size()){
+				//System.out.println(listaP.get(contador));
+				
+				if( listaOrdenada.isEmpty()){
+					listaOrdenada.add(0, listaP.get(contador));
+				}
+				if(x.select_IDUsuarios_Actividad(listaP.get(contador)).size() > x.select_IDUsuarios_Actividad(listaOrdenada.get(0)).size()){
+					listaOrdenada.add(0, listaP.get(contador));
+				}
+				else{
+					listaOrdenada.add(listaP.get(contador));
+				}
+				contador++;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//Collections.reverse(listaOrdenada);
+		return listaOrdenada;
+		
 	}
 	
 	public String registrarEncargado(Usuario pEncargado){
