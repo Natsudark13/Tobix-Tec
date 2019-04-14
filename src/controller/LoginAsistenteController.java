@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 import beans.Asistente;
 import beans.User;
 
-//import beans.User;
+import beans.User;
 
 //@SuppressWarnings("deprecation")
 @ManagedBean
