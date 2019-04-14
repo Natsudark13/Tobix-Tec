@@ -1,4 +1,5 @@
 package beans;
+
 import java.sql.SQLException;
 
 //import javax.annotation.ManagedBean;
