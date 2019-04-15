@@ -198,6 +198,7 @@ public class CRUD {
    
     }
 	
+	
 	public ArrayList<String> select_Actividades(String nameActivity) throws SQLException {
 	 	Connection con = db.openConnection();
 	 	Statement stmt = con.createStatement();

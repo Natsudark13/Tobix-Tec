@@ -45,4 +45,8 @@ public class AdministradorController {
 		//Show the next page
 		return URL;
 	}
+	
+	public String consultaActividades() {
+		return "listadoActividades.xhtml";
+	}
 }

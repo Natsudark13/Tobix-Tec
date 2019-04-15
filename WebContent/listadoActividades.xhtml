@@ -11,7 +11,47 @@
 		
 	
 	<h:form>
+		<h:dataTable value = "#{actividad.nombreActividadesModel}" var = "actividad"
+            styleClass = "actividadTable"
+            headerClass = "actividadTableHeader"
+            rowClasses = "actividadTableOddRow,actividadTableEvenRow">
+      
+            <h:column> 
+               <f:facet name = "header">Numero</f:facet>
+               #{actividad.nombreActividadesModel.rowIndex + 1}
+            </h:column>
+            
+            <h:column>    				
+               <f:facet name = "header">Nombre</f:facet>    				
+               #{actividad.nombreActividad}
+            </h:column>
+            
+            <h:column>
+               <f:facet name = "header">Tipo</f:facet>
+               #{actividad.tipoActividad}
+            </h:column>
+            
+            <h:column>
+               <f:facet name = "header">Fecha Actividad</f:facet>
+               #{actividad.fechaActividad}
+            </h:column>
+            
+            <h:column>
+               <f:facet name = "header">Hora Inicio</f:facet>
+               #{actividad.horaInicio}
+            </h:column>
+            
+            <h:column>
+               <f:facet name = "header">Hora Final</f:facet>
+               #{actividad.horaFinal}
+            </h:column>
+            
+            <h:column>
+               <f:facet name = "header">Descripcion</f:facet>
+               #{actividad.descripcionActividad}
+            </h:column>
 
+         </h:dataTable>
 	</h:form>
 
 </body> 
