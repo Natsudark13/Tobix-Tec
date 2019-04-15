@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>Registrar comentarios</h1>
+
+	Seleccione el bloque y la actividad que desea comentar
+	
+	<form>
+				Bloque:  <h:selectOneMenu id="BloquePerteneciente" value ="#{bloque.tematica}" > 
+					<c:forEach items="#{bloque.bloquesE}" var="item" varStatus="itemIndex">
+    				<f:selectItem itemValue="#{bloque.getBloquesIndex( itemIndex.index ) }"/>
+  					</c:forEach> 
+				</h:selectOneMenu> <br></br><br></br>	
+	
+	</form>
+	
+
+</body> 
+</html>
