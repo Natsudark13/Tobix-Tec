@@ -16,6 +16,7 @@ public class Actividad {
 	private String descripcionActividad;
 	private ArrayList <Comentario> comentarios;
 	private ArrayList <Usuario> encargados;
+	private ArrayList <String> nombresA;
 	
 	/*public Actividad(String pNombreActividad, String pTipoActividad, Date pFechaActividad, String pHoraInicio, String pHoraFinal, String pDescripcionActividad){
 		setNombreActividad(pNombreActividad);
@@ -31,6 +32,17 @@ public class Actividad {
 		
 	}
 	
+	public String getActividadIndex(int ndx_) {
+		return nombresA.get(ndx_);
+	}
+	
+	public ArrayList<String> getNombresA() {
+		return nombresA;
+	}
+
+	public void setNombresA(ArrayList<String> nombresA) {
+		this.nombresA = nombresA;
+	}
 	public void registrarActividad() throws SQLException {
 		CRUD crud = new CRUD();
 		crud.insertActivity(tipoActividad, nombreActividad, fechaActividad, horaInicio, horaFinal, descripcionActividad);

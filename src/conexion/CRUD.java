@@ -5,9 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class CRUD {
 
@@ -172,25 +174,47 @@ public class CRUD {
 	
 	// Selects to the data bases.
 	
-	public ArrayList<Object> select_ALL_Actividades() throws SQLException {
+	public ArrayList<String> select_ALL_Actividades() throws SQLException {
 	 	Connection con = db.openConnection();
 	 	Statement stmt = con.createStatement();
-        String sql = "SELECT Lname FROM Customers WHERE Snum = 2001";
-        ArrayList<Object> list = new ArrayList<>();
+        String sql = "Select * from activity";
+        ArrayList<String> list = new ArrayList<>();
 	 	try(ResultSet rs = stmt.executeQuery(sql)) {
         
 	 	while ( rs.next() ) {
-	 		
+
+	 		rs.next();
+	 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 	 		list.add(rs.getString("TYPE"));
 	 		list.add(rs.getString("NAME"));
-	 		list.add(rs.getDate("ACTIVITYDATE"));
+	 		list.add(dateFormat.format(rs.getDate("ACTIVITYDATE")));
 	 		list.add(rs.getString("STARTTIME"));
 	 		list.add(rs.getString("FINALTIME"));
 	 		list.add(rs.getString("DESCRIPTION"));
 	 		
-            String lastName = rs.getString("Lname");
-            System.out.println(lastName);
         }
+	 	}
+        con.close();
+        return list;
+   
+    }
+	
+	public ArrayList<String> select_Actividades(String nameActivity) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select * from activity where NAME = "+"'"+nameActivity+"'"+"";
+        ArrayList<String> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+	 		
+	 		rs.next();
+	 		
+	 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+	 		list.add(rs.getString("TYPE"));
+	 		list.add(rs.getString("NAME"));
+	 		list.add(dateFormat.format(rs.getDate("ACTIVITYDATE")));
+	 		list.add(rs.getString("STARTTIME"));
+	 		list.add(rs.getString("FINALTIME"));
+	 		list.add(rs.getString("DESCRIPTION"));
 	 	}
         con.close();
         return list;
@@ -347,6 +371,28 @@ public class CRUD {
         return list;
    
     }
+	
+	public ArrayList<String> select_Bloque_actividad(String topic) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select NAME from ACTIVITY join BLOCK_ACTIVITY on activity.name = BLOCK_ACTIVITY.ACTIVITYNAME where TOPIC ="+"'"+topic+"'"+"";
+        ArrayList<String> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 		while ( rs.next() ) {
+	 		
+	 		list.add(rs.getString("NAME"));
+
+	 		}
+	 	}
+        con.close();
+        return list;
+   
+    }
+	
+	
+	
+	
 	//Delete to the database
 
 	public void deleteActivity(String name) throws SQLException {

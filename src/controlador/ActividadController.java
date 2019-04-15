@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 
 import beans.Actividad;
 import beans.Bloque;
+import conexion.CRUD;
 
 
 //@SuppressWarnings("deprecation")
@@ -20,6 +21,54 @@ public class ActividadController {
 	
 	public String btnConsultas() {
 		return"listadoActividad.xhtml";
+	}
+	
+	public String elegirBloque() throws SQLException {
+		// get the user values from the input form.
+		CRUD crud = new CRUD();
+		FacesContext context = FacesContext.getCurrentInstance();
+		Bloque bloque = context.getApplication().evaluateExpressionGet(context, "#{bloque}", Bloque.class);
+		Actividad actividad = new Actividad();
+		actividad.setNombresA(crud.select_Bloque_actividad(bloque.getTematica()));
+		
+		// put the user object into the POST request 
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
+		
+		return"elegirActividades.xhtml";
+	}
+	
+	public String verActividad() throws SQLException {
+		// get the user values from the input form.
+		FacesContext context = FacesContext.getCurrentInstance();
+		Actividad actividad = context.getApplication().evaluateExpressionGet(context, "#{actividad}", Actividad.class);
+		CRUD crud = new CRUD();
+		crud.select_Actividades(nameActivity)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		// put the user object into the POST request 
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
+		
+		return"elegirActividades.xhtml";
+	}
+	
+	public String asignarActividad() throws SQLException {
+		// get the user values from the input form.
+		FacesContext context = FacesContext.getCurrentInstance();
+		Bloque bloque = context.getApplication().evaluateExpressionGet(context, "#{bloque}", Bloque.class);
+		Actividad actividad = new Actividad();
+		//actividad.setNombresA(crud.select_Bloque_actividad(bloque.getTematica()));
+		
+		// put the user object into the POST request 
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
+		
+		return"elegirActividades.xhtml";
 	}
 	
 	public String registrarActividad(){

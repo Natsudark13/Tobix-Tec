@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body>
+	<h:panelGrid columns="3">
+		<h3>Adding a Text Label</h3>
+		<h:outputLabel id="1" value="#{actividad.nombreActividad}" />
+		<br />
+		<br />
+		<h:outputLabel id="2" value="#{actividad.tipoActividad}" />
+		<br />
+		<br />
+		<h:outputLabel id="3" value="#{actividad.fechaActividad}" />
+		<br />
+		<br />
+		<h:outputLabel id="4" value="#{actividad.horaInicio}" />
+		<br />
+		<br />
+		<h:outputLabel id="5" value="#{actividad.horaFinal}" />
+		<br />
+		<br />
+		<h:outputLabel id="6" value="#{actividad.descripcionActividad}" />
+	</h:panelGrid>
+	<h3>Quiero asistir a esta actividad</h3>
+	<h:commandButton id="registrar1" action="#{actividadController.asignarActividad()}" value="Participar" />
+	<h3>No quiero asistir a esta actividad</h3>
+	<h:commandButton id="registrar2" action="registrar-Participacion.xhtml" value="Regresar" />
+</h:body> 
+</html>

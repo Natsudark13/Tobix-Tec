@@ -43,6 +43,7 @@ public class Main {
 			System.out.println(xx.listaActividadesPorComentarios().get(0));
 			System.out.println(xx.listaActividadesPorUsuarios().get(0));*/
 			System.out.println(x.select_Actividades_Asistente(201799852).get(1));
+			System.out.println(x.select_Actividades("IBM").get(0));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
