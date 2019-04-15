@@ -9,7 +9,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
+
 
 public class CRUD {
 
@@ -208,7 +208,7 @@ public class CRUD {
 	 		
 	 		rs.next();
 	 		
-	 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+	 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 	 		list.add(rs.getString("TYPE"));
 	 		list.add(rs.getString("NAME"));
 	 		list.add(dateFormat.format(rs.getDate("ACTIVITYDATE")));
@@ -219,6 +219,23 @@ public class CRUD {
         con.close();
         return list;
    
+    }
+	
+	public ArrayList<Integer> select_ID_Encargados() throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select SUPERVISORID from SUPERVISOR";
+        ArrayList<Integer> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 	while ( rs.next() ) {
+	 		
+	 		list.add(rs.getInt("SUPERVISORID"));
+           
+        }
+	 	}
+        con.close();
+        return list;
     }
 	
 	public ArrayList<String> select_Name_Actividades() throws SQLException {

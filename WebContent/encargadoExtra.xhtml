@@ -2,24 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://java.sun.com/jstl/core"> 
+      xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head></h:head> 
 <body> 
 
-	<h1>Proceso de registro de participación en una actividad</h1>
-	<h4>Por favor, eliga la actividad que desea consultar: </h4>	
-	<h:form id="actividadE">
+	<h:form>
+	
+	Encargado:  <h:selectOneMenu value="#{encargado.cedula}">
+    				<f:selectItems value="#{encargado.listaID}" />
+				</h:selectOneMenu>
+				<br></br><br></br>
+				
 	Actividad: 	<h:selectOneMenu value="#{actividad.nombreActividad}">
     				<f:selectItems value="#{actividad.nombresA}" />
 				</h:selectOneMenu>
-	<br></br><br></br>
+	<br></br><br></br>			
 	
-	<h:commandButton id="registrarCC" action="#{actividadController.verActividad()}" value="Selecionar actividad" />
+	<h:commandButton id="done" action="#{actividadController.registrarExtra()}" value="Registrar Encargado" />
+	
 	</h:form>
-	
-
 
 </body> 
 </html>

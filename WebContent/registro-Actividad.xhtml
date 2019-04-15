@@ -12,6 +12,11 @@
 	<h4>Por favor, llene los espacios en blanco con la información de la actividad: </h4>
 	<h:form id="registro">
 		
+		Encargado:  <h:selectOneMenu value="#{encargado.cedula}">
+    				<f:selectItems value="#{encargado.listaID}" />
+				</h:selectOneMenu>
+				<br></br><br></br>
+				
 		Bloque:  <h:selectOneMenu id="BloquePerteneciente" value ="#{bloque.tematica}" > 
 					<c:forEach items="#{bloque.bloquesE}" var="item" varStatus="itemIndex">
     				<f:selectItem itemValue="#{bloque.getBloquesIndex( itemIndex.index ) }"/>

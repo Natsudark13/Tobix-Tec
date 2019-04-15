@@ -2,15 +2,16 @@ package beans;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.model.ArrayDataModel;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
 import conexion.CRUD;
 @ManagedBean
+@ViewScoped
 public class Actividad {
 	private String nombreActividad;
 	private String tipoActividad;
@@ -34,13 +35,15 @@ public class Actividad {
 	}
 	
 	public Actividad() {
+		CRUD crud = new CRUD();
+		try {
+			this.nombresA = crud.select_Name_Actividades();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 		
-	}
-	
-	public String getActividadIndex(int ndx_) {
-		return nombresA.get(ndx_);
-	}
-	
 	public ArrayList<String> getNombresA() {
 		return nombresA;
 	}
@@ -48,6 +51,7 @@ public class Actividad {
 	public void setNombresA(ArrayList<String> nombresA) {
 		this.nombresA = nombresA;
 	}
+
 	public void registrarActividad() throws SQLException {
 		CRUD crud = new CRUD();
 		crud.insertActivity(tipoActividad, nombreActividad, fechaActividad, horaInicio, horaFinal, descripcionActividad);
@@ -56,6 +60,11 @@ public class Actividad {
 	public void registrarActividad_Bloque(String topic) throws SQLException {
 		CRUD crud = new CRUD();
 		crud.insertBlockActivity(nombreActividad, topic);
+	}
+	
+	public void registrarActividad_Encargado(int id) throws SQLException {
+		CRUD crud = new CRUD();
+		crud.insertSupervisorActivity(id, nombreActividad);
 	}
 	
 	public void cargarComentarios() throws SQLException{
