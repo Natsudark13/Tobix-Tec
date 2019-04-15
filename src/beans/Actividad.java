@@ -36,6 +36,11 @@ public class Actividad {
 		crud.insertActivity(tipoActividad, nombreActividad, fechaActividad, horaInicio, horaFinal, descripcionActividad);
 	}
 	
+	public void registrarActividad_Bloque(String topic) throws SQLException {
+		CRUD crud = new CRUD();
+		crud.insertBlockActivity(nombreActividad, topic);
+	}
+	
 	public void cargarComentarios() throws SQLException{
 		Comentario comentario = new Comentario();
 		int contador = 0;
