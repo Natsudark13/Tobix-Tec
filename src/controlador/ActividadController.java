@@ -10,6 +10,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
 import beans.Actividad;
+import beans.Asistente;
 import beans.Bloque;
 import beans.Encargado;
 import conexion.CRUD;
@@ -67,25 +68,29 @@ public class ActividadController {
 		actividad.setDescripcionActividad(temp.get(5));
 		System.out.println("resultado: "+actividad.getNombreActividad()+" "+actividad.getTipoActividad());
 		
+		
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
 		
 		return"verActividad.xhtml";
 	}
 	
-	/*public String asignarActividad() throws SQLException {
+	public String asignarActividad() throws SQLException {
 		// get the user values from the input form.
 		FacesContext context = FacesContext.getCurrentInstance();
 		
 		//Bloque bloque = context.getApplication().evaluateExpressionGet(context, "#{bloque}", Bloque.class);
 		Actividad actividad = context.getApplication().evaluateExpressionGet(context, "#{actividad}", Actividad.class);
-	    actividad.setNombresA());
+		Asistente asistente = context.getApplication().evaluateExpressionGet(context, "#{asistente}", Asistente.class);
+		
+		System.out.println("resultado: "+actividad.getNombreActividad());
+	    actividad.registrarActividad_Asistente(asistente.getCedula());
 		
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
 		
-		return"elegirActividades.xhtml";
-	}*/
+		return"principalAsistente.xhtml";
+	}
 	
 	public String registrarActividad(){
 		

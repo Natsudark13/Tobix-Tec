@@ -62,6 +62,11 @@ public class Actividad {
 		crud.insertBlockActivity(nombreActividad, topic);
 	}
 	
+	public void registrarActividad_Asistente(int id) throws SQLException {
+		CRUD crud = new CRUD();
+		crud.insertUserActivity(id,nombreActividad);
+	}
+	
 	public void registrarActividad_Encargado(int id) throws SQLException {
 		CRUD crud = new CRUD();
 		crud.insertSupervisorActivity(id, nombreActividad);
