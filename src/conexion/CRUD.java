@@ -330,6 +330,23 @@ public class CRUD {
    
     }
 	
+	public ArrayList<String> select_Actividades_Asistente(int id) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select NAME from activity join ACTIVITY_USER on activity.NAME = ACTIVITY_USER.ACTIVITY_NAME where ACTIVITY_USER.USER_ID = "+id+"";
+        ArrayList<String> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 		while ( rs.next() ) {
+	 		
+	 		list.add(rs.getString("NAME"));
+
+	 		}
+	 	}
+        con.close();
+        return list;
+   
+    }
 	//Delete to the database
 
 	public void deleteActivity(String name) throws SQLException {
