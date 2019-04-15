@@ -2,8 +2,12 @@ package beans;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.model.ArrayDataModel;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 import conexion.CRUD;
 @ManagedBean
@@ -17,16 +21,17 @@ public class Actividad {
 	private ArrayList <Comentario> comentarios;
 	private ArrayList <Usuario> encargados;
 	private ArrayList <String> nombresA;
+	private DataModel<Actividad> nombreActividadesModel;
 	
-	/*public Actividad(String pNombreActividad, String pTipoActividad, Date pFechaActividad, String pHoraInicio, String pHoraFinal, String pDescripcionActividad){
+	public Actividad(String pNombreActividad, String pTipoActividad, String pFechaActividad, String pHoraInicio, String pHoraFinal, String pDescripcionActividad){
 		setNombreActividad(pNombreActividad);
 		setTipoActividad(pTipoActividad);
 		setFechaActividad(pFechaActividad);
 		setHoraInicio(pHoraInicio);
 		setHoraFinal(pHoraFinal);
 		setDescripcionActividad(pDescripcionActividad);
-		comentarios = new ArrayList<Comentario>();
-	}*/
+		//comentarios = new ArrayList<Comentario>();
+	}
 	
 	public Actividad() {
 		
@@ -184,5 +189,13 @@ public class Actividad {
 		this.descripcionActividad = pDescripcionActividad;
 	}
 	
+	
+	public DataModel<Actividad> getNombreActividadesModel() { 
+			return nombreActividadesModel; 
+	}
+	
+	public void setNombreActividadesModel(DataModel<Actividad> actividades) { 
+		this.nombreActividadesModel = actividades; 
+}
 	
 }
