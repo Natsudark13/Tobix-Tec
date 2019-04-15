@@ -8,22 +8,22 @@
 <h:body>
 	<h:panelGrid columns="3">
 		<h3>Adding a Text Label</h3>
-		<h:outputLabel id="1" value="#{actividad.nombreActividad}" />
+		<h:outputLabel id="A" value="#{actividad.nombreActividad}" />
 		<br />
 		<br />
-		<h:outputLabel id="2" value="#{actividad.tipoActividad}" />
+		<h:outputLabel id="B" value="#{actividad.tipoActividad}" />
 		<br />
 		<br />
-		<h:outputLabel id="3" value="#{actividad.fechaActividad}" />
+		<h:outputLabel id="C" value="#{actividad.fechaActividad}" />
 		<br />
 		<br />
-		<h:outputLabel id="4" value="#{actividad.horaInicio}" />
+		<h:outputLabel id="D" value="#{actividad.horaInicio}" />
 		<br />
 		<br />
-		<h:outputLabel id="5" value="#{actividad.horaFinal}" />
+		<h:outputLabel id="E" value="#{actividad.horaFinal}" />
 		<br />
 		<br />
-		<h:outputLabel id="6" value="#{actividad.descripcionActividad}" />
+		<h:outputLabel id="I" value="#{actividad.descripcionActividad}" />
 	</h:panelGrid>
 	<h3>Quiero asistir a esta actividad</h3>
 	<h:commandButton id="registrar1" action="#{actividadController.asignarActividad()}" value="Participar" />

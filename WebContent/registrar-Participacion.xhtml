@@ -10,13 +10,13 @@
 
 	<h1>Proceso de registro de participación en una actividad</h1>
 	<h4>Por favor, eliga el bloque que desea participar: </h4>	
-	<h:form id="actividad">
+	<h:form id="actividadX">
 	Bloque:  <h:selectOneMenu id="BloquePerteneciente" value ="#{bloque.tematica}" > 
-					<c:forEach items="#{bloque.bloquesE}" var="item" varStatus="itemIndex">
+					<c:forEach id="AA" items="#{bloque.bloquesE}" var="item" varStatus="itemIndex">
     				<f:selectItem itemValue="#{bloque.getBloquesIndex( itemIndex.index ) }"/>
   					</c:forEach> 
 			 </h:selectOneMenu> <br></br><br></br>
-	<h:commandButton id="registrar" action="#{actividadController.elegirBloque()}" value="Selecionar Bloque" />
+	<h:commandButton id="selecionarB" action="#{actividadController.elegirBloque()}" value="Selecionar Bloque" />
 	</h:form>
 
 

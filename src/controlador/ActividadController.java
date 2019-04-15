@@ -1,6 +1,7 @@
 package controlador;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
@@ -31,10 +32,12 @@ public class ActividadController {
 		Actividad actividad = new Actividad();
 		actividad.setNombresA(crud.select_Bloque_actividad(bloque.getTematica()));
 		
+		System.out.println("look: "+bloque.getTematica()+" "+actividad.getNombresA().get(0));
+		
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
 		
-		return"elegirActividades.xhtml";
+		return"elegirActividad.xhtml";
 	}
 	
 	public String verActividad() throws SQLException {
@@ -42,20 +45,17 @@ public class ActividadController {
 		FacesContext context = FacesContext.getCurrentInstance();
 		Actividad actividad = context.getApplication().evaluateExpressionGet(context, "#{actividad}", Actividad.class);
 		CRUD crud = new CRUD();
-		crud.select_Actividades(nameActivity)
-		
-		
-		
-		
-		
-		
-		
-		
+		ArrayList<String> temp = crud.select_Actividades(actividad.getNombreActividad());
+		actividad.setTipoActividad(temp.get(0));
+		actividad.setFechaActividad(temp.get(2));
+		actividad.setHoraInicio(temp.get(3));
+		actividad.setHoraFinal(temp.get(4));
+		actividad.setDescripcionActividad(temp.get(5));
 		
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
 		
-		return"elegirActividades.xhtml";
+		return"verActividad.xhtml";
 	}
 	
 	public String asignarActividad() throws SQLException {
