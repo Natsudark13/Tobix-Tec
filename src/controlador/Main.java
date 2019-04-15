@@ -42,7 +42,7 @@ public class Main {
 			System.out.println(x.select_ExisteUsuario("Natsudark13@gmail.com", "1234"));
 			System.out.println(xx.listaActividadesPorComentarios().get(0));
 			System.out.println(xx.listaActividadesPorUsuarios().get(0));*/
-			System.out.println(x.select_Tipo_Bloque().get(0));
+			System.out.println(x.select_Actividades_Asistente(201799852).get(1));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
