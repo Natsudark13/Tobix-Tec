@@ -102,7 +102,7 @@ public class ActividadController {
 		FacesContext context = FacesContext.getCurrentInstance();
 		int contador = 0;
 		ArrayList<Actividad> actividades = new ArrayList<>();
-		Actividad actividad = new Actividad();
+		Actividad actividAad = new Actividad();
 		try {
 			System.out.println("Entra al while");
 			ArrayList<String> temp = crud.select_ALL_Actividades();
