@@ -311,6 +311,25 @@ public class CRUD {
         return description;
     }
 	
+	
+	public ArrayList<String> select_Tipo_Bloque() throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select TOPIC from BLOCK";
+        ArrayList<String> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 		while ( rs.next() ) {
+	 		
+	 		list.add(rs.getString("TOPIC"));
+
+	 		}
+	 	}
+        con.close();
+        return list;
+   
+    }
+	
 	//Delete to the database
 
 	public void deleteActivity(String name) throws SQLException {

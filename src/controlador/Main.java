@@ -42,12 +42,7 @@ public class Main {
 			System.out.println(x.select_ExisteUsuario("Natsudark13@gmail.com", "1234"));
 			System.out.println(xx.listaActividadesPorComentarios().get(0));
 			System.out.println(xx.listaActividadesPorUsuarios().get(0));*/
-			x.insertComments("IBM", "Me encanto toda la actividad eso fue increible");
-			x.insertComments("IBM-Watson", "No entendi mucho, pero no estuvo mal la verdad");
-			x.insertComments("IBM-Watson", "No entendi nada, los tutoriales se ven faciles, pero a mi no me sirve, odio a watson");
-			x.insertComments("IBM-DB2", "Wow no sabia que DB2 era tan util,lo voy empezar a usar a partir de ahora");
-			x.insertComments("IBM-DB2", "No me gusto DB2, talvez porque soy muy pro SQL server");
-			x.insertComments("IBM-DB2", "Me gusto DB2, lo voy a utilizar en las clases a partir de ahora");
+			System.out.println(x.select_Tipo_Bloque().get(0));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

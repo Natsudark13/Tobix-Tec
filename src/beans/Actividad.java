@@ -3,8 +3,10 @@ package beans;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import conexion.CRUD;
+import javax.faces.bean.ManagedBean;
 
+import conexion.CRUD;
+@ManagedBean
 public class Actividad {
 	private String nombreActividad;
 	private String tipoActividad;
