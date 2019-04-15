@@ -156,14 +156,13 @@ public class CRUD {
         con.close();
     }
 	
-	public void insertComments(int id,String name, String description) throws SQLException {
+	public void insertComments(String name, String description) throws SQLException {
 	 	Connection con = db.openConnection();
-        String sql = "insert into " + "Comments" + " values( " + "?,?,?" + ")";
+        String sql = "insert into " + "COMMENTS" + " values( " + "?,?" + ")";
         try (PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-				pstmt.setObject(1, id);
-	            pstmt.setObject(2, name);
-	            pstmt.setObject(3, description);
+	            pstmt.setObject(1, name);
+	            pstmt.setObject(2, description);
 
 	            pstmt.execute();	                                 
         }

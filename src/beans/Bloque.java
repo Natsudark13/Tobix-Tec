@@ -1,10 +1,11 @@
 package beans;
+import java.sql.SQLException;
 import java.util.ArrayList;
-
-import java.util.Date;
 
 import javax.faces.bean.*;
 //import javax.annotation.ManagedBean;
+
+import conexion.CRUD;
 
 
 //@SuppressWarnings("deprecation")
@@ -13,7 +14,7 @@ import javax.faces.bean.*;
 public class Bloque {
 	private String tematica;
 	private String descripcionTematica;
-	private Date fechaBloque;
+	private String fechaBloque;
 	private String franjaHoraria;
 	private ArrayList <Actividad> actividades;
 	
@@ -21,13 +22,18 @@ public class Bloque {
 	public Bloque() {
 		
 	}
-	public Bloque(String pTematica, String pDescripcionTematica, Date pFechaBloque, String pFranjaHoraria){
+	
+	/*public Bloque(String pTematica, String pDescripcionTematica, Date pFechaBloque, String pFranjaHoraria){
 		setTematica(pTematica);
 		setDescripcionTematica(pDescripcionTematica);
 		setFechaBloque(pFechaBloque);
 		setFranjaHoraria(pFranjaHoraria);
-	}
+	}*/
 	
+	public void registrarBloque() throws SQLException {
+		CRUD crud = new CRUD();
+		crud.insertBlock(tematica, descripcionTematica, fechaBloque, franjaHoraria);
+	}
 	
 	public String registrarActividad(Actividad pActividad){
 		actividades.add(pActividad);
@@ -50,11 +56,11 @@ public class Bloque {
 		this.descripcionTematica = pDescripcionTematica;
 	}
 
-	public Date getFechaBloque() {
+	public String getFechaBloque() {
 		return fechaBloque;
 	}
 
-	public void setFechaBloque(Date pFechaBloque) {
+	public void setFechaBloque(String pFechaBloque) {
 		this.fechaBloque = pFechaBloque;
 	}
 

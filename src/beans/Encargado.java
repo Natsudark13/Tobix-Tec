@@ -1,6 +1,10 @@
 package beans;
 
+import java.sql.SQLException;
+
 import javax.faces.bean.ManagedBean;
+
+import conexion.CRUD;
 
 @ManagedBean
 
@@ -21,6 +25,12 @@ public class Encargado extends Usuario {
 		
 	}
 
+	public void registrarEncargado() throws SQLException {
+		CRUD crud = new CRUD();
+		crud.insertSupervisor(this.cedula, this.sexo, this.correo, this.nombre, this.primerApellido, this.segundoApellido, this.experiencia, this.institucionProcedencia);
+	}
+	
+	
 	public int getExperiencia() {
 		return experiencia;
 	}
