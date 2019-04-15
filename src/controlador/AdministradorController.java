@@ -49,4 +49,8 @@ public class AdministradorController {
 	public String consultaActividades() {
 		return "listadoActividades.xhtml";
 	}
+	
+	public String registrarEncargado() {
+		return "";
+	}
 }
