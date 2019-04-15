@@ -183,7 +183,6 @@ public class CRUD {
         
 	 	while ( rs.next() ) {
 
-	 		rs.next();
 	 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 	 		list.add(rs.getString("TYPE"));
 	 		list.add(rs.getString("NAME"));

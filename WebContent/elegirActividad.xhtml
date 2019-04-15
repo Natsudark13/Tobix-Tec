@@ -11,7 +11,7 @@
 	<h1>Proceso de registro de participación en una actividad</h1>
 	<h4>Por favor, eliga la actividad que desea consultar: </h4>	
 	<h:form id="actividad">
-	Bloque:  <h:selectOneMenu id="actividad" value ="#{actividad.nombreActividad}" > 
+	Actividad:  <h:selectOneMenu id="actividad" value ="#{actividad.nombreActividad}" > 
 					<c:forEach items="#{actividad.nombresA}" var="item" varStatus="itemIndex">
     				<f:selectItem itemValue="#{actividad.getActividadIndex( itemIndex.index ) }"/>
   					</c:forEach> 
