@@ -97,11 +97,13 @@ public class Actividad {
 				if( listaOrdenada.isEmpty()){
 					listaOrdenada.add(0, listaP.get(contador));
 				}
-				if(x.select_Comments_Actividad(listaP.get(contador)).size() > x.select_Comments_Actividad(listaOrdenada.get(0)).size()){
-					listaOrdenada.add(0, listaP.get(contador));
-				}
-				else{
-					listaOrdenada.add(listaP.get(contador));
+				else {
+					if(x.select_Comments_Actividad(listaP.get(contador)).size() > x.select_Comments_Actividad(listaOrdenada.get(0)).size() ){
+						listaOrdenada.add(0, listaP.get(contador));
+					}
+					else{
+						listaOrdenada.add(listaP.get(contador));
+					}
 				}
 				contador++;
 			}
@@ -127,11 +129,13 @@ public class Actividad {
 				if( listaOrdenada.isEmpty()){
 					listaOrdenada.add(0, listaP.get(contador));
 				}
+				else {
 				if(x.select_IDUsuarios_Actividad(listaP.get(contador)).size() > x.select_IDUsuarios_Actividad(listaOrdenada.get(0)).size()){
 					listaOrdenada.add(0, listaP.get(contador));
 				}
 				else{
 					listaOrdenada.add(listaP.get(contador));
+				}
 				}
 				contador++;
 			}

@@ -241,7 +241,7 @@ public class CRUD {
 	public ArrayList<String> select_Name_Actividades() throws SQLException {
 	 	Connection con = db.openConnection();
 	 	Statement stmt = con.createStatement();
-        String sql = "Select * from activity";
+        String sql = "Select NAME from activity";
         ArrayList<String> list = new ArrayList<>();
 	 	try(ResultSet rs = stmt.executeQuery(sql)) {
         
