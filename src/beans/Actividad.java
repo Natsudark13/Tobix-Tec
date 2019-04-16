@@ -70,6 +70,10 @@ public class Actividad {
 		}
 	}
 	
+	public void ContarComentarios()throws SQLException{
+		
+	}
+	
 	public ArrayList<String> listaActividadesPorComentarios(){
 		CRUD x = new CRUD();
 		int contador = 0;
