@@ -208,7 +208,7 @@ public class CRUD {
 	 		
 	 		rs.next();
 	 		
-	 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+	 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 	 		list.add(rs.getString("TYPE"));
 	 		list.add(rs.getString("NAME"));
 	 		list.add(dateFormat.format(rs.getDate("ACTIVITYDATE")));
