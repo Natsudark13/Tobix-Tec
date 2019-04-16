@@ -12,19 +12,19 @@
 
 	Seleccione el bloque y la actividad que desea comentar
 	
-	<form>
-				Bloque:  <h:selectOneMenu id="BloquePerteneciente" value ="#{bloque.tematica}" > 
-					<c:forEach items="#{bloque.bloquesE}" var="item" varStatus="itemIndex">
-    				<f:selectItem itemValue="#{bloque.getBloquesIndex( itemIndex.index ) }"/>
-  					</c:forEach> 
-				</h:selectOneMenu> <br></br><br></br>
+	<h:form>
+				Actividad: 	<h:selectOneMenu value="#{actividad.nombreActividad}">
+    				<f:selectItems value="#{actividad.nombresA}" />
+				</h:selectOneMenu>
+				<br></br><br></br>			
 				
 				
 				
-				Ingrese su comentario: 
-					
+				Ingrese su comentario:<h:inputText id="nombre" value="#{comentario.descripcionComentario}" /><br></br><br></br>
+				
+				<h:commandButton id="done" action="#{comentarioController.registrar()}" value="Registrar Encargado" />	
 	
-	</form>
+	</h:form>
 	
 
 </body> 
