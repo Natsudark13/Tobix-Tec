@@ -9,29 +9,29 @@
 	<h2>Registrar Nuevo Usuario Asistente</h2>
 	<h4>Por favor, llene los espacios en blanco con su información personal: </h4>
 	<h:form>
-		cedula:  <h:inputText id="cedula" value="#{asistente.cedula}" required="true"/><br></br><br></br>
+		cedula:  <h:inputText id="cedula" value="#{asistente.cedula}" required="true"/><br></br>
 			
-				 <h:message for="cedula" style="color:red" /><br></br><br></br>
+				 <h:message for="cedula" style="color:red" /><br></br>
 		
 		sexo:   <h:selectOneMenu id="sexo" value="#{asistente.sexo}" required="true" > 
   				 <f:selectItem itemValue = "F"  /> 
    				 <f:selectItem itemValue = "M"  />
-   				 <f:selectItem itemValue = "Indefinido"  /></h:selectOneMenu> <br></br><br></br>
-		correo:  <h:inputText id="correo" value="#{asistente.correo}" required="true"/><br></br><br></br>
-				 <h:message for="correo" style="color:red" /><br></br><br></br>
+   				 <f:selectItem itemValue = "Indefinido"  /></h:selectOneMenu> <br></br>
+		correo:  <h:inputText id="correo" value="#{asistente.correo}" required="true"/><br></br>
+				 <h:message for="correo" style="color:red" /><br></br>
 			
-		nombre:  <h:inputText id="nombre" value="#{asistente.nombre}"  required="true"/><br></br><br></br>
-				<h:message for="nombre" style="color:red" /><br></br><br></br>
-		apellido1:  <h:inputText id="ap1" value="#{asistente.primerApellido}" required="true" /><br></br><br></br>
-				<h:message for="ap1" style="color:red" /><br></br><br></br>
-		apellido2:  <h:inputText id="ap2" value="#{asistente.segundoApellido}"  required="true"/><br></br><br></br>
-				<h:message for="ap2" style="color:red" /><br></br>
-		constraseña:  <h:inputText value="#{asistente.contrasenaAsistente}" type="password" required="true" /><br></br><br></br>
+		nombre:  <h:inputText id="nombre" value="#{asistente.nombre}"  required="true"/><br></br>
+				<h:message for="nombre" style="color:red" /><br></br>
+		apellido1:  <h:inputText id="ap1" value="#{asistente.primerApellido}" required="true" /><br></br>
+				<h:message for="ap1" style="color:red" /><br></br>
+		apellido2:  <h:inputText id="ap2" value="#{asistente.segundoApellido}"  required="true"/><br></br>
+				<h:message for="ap2" style="color:red" />
+		constraseña:  <h:inputText value="#{asistente.contrasenaAsistente}" type="password" required="true" /><br></br>
 		entidad de procedencia: <h:selectOneMenu id="Entidad_procedencia" value="#{asistente.entidadProcedencia}" > 
   				 <f:selectItem itemValue = "Academica"  /> 
    				 <f:selectItem itemValue = "Empresarial"  /> 
 				 <f:selectItem itemValue = "Participación personal" />
-				</h:selectOneMenu> <br></br><br></br>
+				</h:selectOneMenu> <br></br>
 		<h:commandButton onclick="JavaScript: alert('Realizar registro?')"  action="#{asistenteController.crearCuenta()}" value="Registrarse" />
 		
 		
