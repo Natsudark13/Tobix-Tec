@@ -130,20 +130,18 @@ public class ActividadController {
 		return "principalAdministrador.xhtml";
 	}
 	
-	public String generarConsultaActividades() {
+	public String generarConsultaActividadesCantComentarios() {
 		CRUD crud = new CRUD();
 		FacesContext context = FacesContext.getCurrentInstance();
 		int contador = 0;
 		ArrayList<Actividad> actividades = new ArrayList<>();
 		Actividad actividad = new Actividad();
 		try {
-			System.out.println("Entra al while");
-			ArrayList<String> temp = crud.select_ALL_Actividades();
-			System.out.println(temp.size());
+			ArrayList<String> temp = actividad.listaActividadesPorComentarios();
 			while (temp.size()>contador) {
 				System.out.println(temp.get(contador));
-				actividades.add(new Actividad(temp.get(contador),temp.get(contador+1), temp.get(contador+2), temp.get(contador+3), temp.get(contador+4), temp.get(contador+5)));
-				contador+=6;
+				actividades.add(new Actividad(temp.get(contador),crud.select_Comments_Actividad(temp.get(contador)).size()));
+				contador++;
 				System.out.println("actividades de tama: "+actividades.size());
 				System.out.println("contador sale con: "+contador);
 			}
@@ -156,7 +154,34 @@ public class ActividadController {
 		}
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
-		return "listadoActividades.xhtml";
+		return "listadoActividadesCantComentarios.xhtml";
+	}
+	
+	public String generarConsultaActividadesCantAsistentes() {
+		CRUD crud = new CRUD();
+		FacesContext context = FacesContext.getCurrentInstance();
+		int contador = 0;
+		ArrayList<Actividad> actividades = new ArrayList<>();
+		Actividad actividad = new Actividad();
+		try {
+			ArrayList<String> temp = actividad.listaActividadesPorUsuarios();
+			while (temp.size()>contador) {
+				System.out.println(temp.get(contador));
+				actividades.add(new Actividad(temp.get(contador), crud.select_IDUsuarios_Actividad(temp.get(contador)).size()));
+				contador++;
+				System.out.println("actividades de tama: "+actividades.size());
+				System.out.println("contador sale con: "+contador);
+			}
+		DataModel<Actividad> temp2 = new ListDataModel(actividades);
+		actividad.setNombreActividadesModel(temp2);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// put the user object into the POST request 
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
+		return "listadoActividadesCantUsuarios.xhtml";
 	}
 	
 	public String registrarExtra(){
