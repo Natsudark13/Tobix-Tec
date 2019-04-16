@@ -19,19 +19,27 @@ public class Actividad {
 	private String horaInicio;
 	private String horaFinal;
 	private String descripcionActividad;
+	private int cantComentarios;
 	private ArrayList <Comentario> comentarios;
 	private ArrayList <Usuario> encargados;
 	private ArrayList <String> nombresA;
 	private DataModel<Actividad> nombreActividadesModel;
 	
-	public Actividad(String pNombreActividad, String pTipoActividad, String pFechaActividad, String pHoraInicio, String pHoraFinal, String pDescripcionActividad){
+	public Actividad(String pNombreActividad, String pTipoActividad, String pFechaActividad, String pHoraInicio, String pHoraFinal, String pDescripcionActividad, int pCantidadComentarios){
 		setNombreActividad(pNombreActividad);
 		setTipoActividad(pTipoActividad);
 		setFechaActividad(pFechaActividad);
 		setHoraInicio(pHoraInicio);
 		setHoraFinal(pHoraFinal);
 		setDescripcionActividad(pDescripcionActividad);
+		setCantidadComentarios(pCantidadComentarios);
+		
 		//comentarios = new ArrayList<Comentario>();
+	}
+	
+	public Actividad(String pNombreActividad, int pCantComentarios) {
+		setNombreActividad(pNombreActividad);
+		setCantidadComentarios(pCantComentarios);
 	}
 	
 	public Actividad() {
@@ -214,6 +222,14 @@ public class Actividad {
 	
 	public void setNombreActividadesModel(DataModel<Actividad> actividades) { 
 		this.nombreActividadesModel = actividades; 
-}
+	}
+	
+	public void setCantidadComentarios(int pCantComentarios) {
+		this.cantComentarios = pCantComentarios; 
+	}
+	
+	public int getCantidadComentarios() {
+		return this.cantComentarios;
+	}
 	
 }
