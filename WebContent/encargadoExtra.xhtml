@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+	<h:form>
+	
+	Encargado:  <h:selectOneMenu value="#{encargado.cedula}">
+    				<f:selectItems value="#{encargado.listaID}" />
+				</h:selectOneMenu>
+				<br></br><br></br>
+				
+	Actividad: 	<h:selectOneMenu value="#{actividad.nombreActividad}">
+    				<f:selectItems value="#{actividad.nombresA}" />
+				</h:selectOneMenu>
+	<br></br><br></br>			
+	
+	<h:commandButton id="done" action="#{actividadController.registrarExtra()}" value="Registrar Encargado" />
+	
+	</h:form>
+
+</body> 
+</html>

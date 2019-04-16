@@ -35,14 +35,15 @@ public class Actividad {
 	}
 	
 	public Actividad() {
+		CRUD crud = new CRUD();
+		try {
+			this.nombresA = crud.select_Name_Actividades();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 		
-	}
-	
-	public String getActividadIndex(int ndx_) {
-		return nombresA.get(ndx_);
-	}
-	
-	
 	public ArrayList<String> getNombresA() {
 		return nombresA;
 	}
@@ -59,6 +60,11 @@ public class Actividad {
 	public void registrarActividad_Bloque(String topic) throws SQLException {
 		CRUD crud = new CRUD();
 		crud.insertBlockActivity(nombreActividad, topic);
+	}
+	
+	public void registrarActividad_Encargado(int id) throws SQLException {
+		CRUD crud = new CRUD();
+		crud.insertSupervisorActivity(id, nombreActividad);
 	}
 	
 	public void cargarComentarios() throws SQLException{

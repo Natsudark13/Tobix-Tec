@@ -221,6 +221,23 @@ public class CRUD {
    
     }
 	
+	public ArrayList<Integer> select_ID_Encargados() throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select SUPERVISORID from SUPERVISOR";
+        ArrayList<Integer> list = new ArrayList<>();
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 	while ( rs.next() ) {
+	 		
+	 		list.add(rs.getInt("SUPERVISORID"));
+           
+        }
+	 	}
+        con.close();
+        return list;
+    }
+	
 	public ArrayList<String> select_Name_Actividades() throws SQLException {
 	 	Connection con = db.openConnection();
 	 	Statement stmt = con.createStatement();
