@@ -7,27 +7,39 @@
 <h:head></h:head> 
 <h:body>
 	<h:panelGrid columns="3">
-		<h3>Adding a Text Label</h3>
-		<h:outputLabel id="A" value="#{actividad.nombreActividad}" />
+		<h4>nombre</h4>
+		<h:outputLabel for="A" />
+		<h:outputText id="A" value = "#{actividad.nombreActividad}" />
 		<br />
+		<h4>Tipo</h4>
+		<h:outputLabel for="B" />
+		<h:outputText id="B" value = "#{actividad.tipoActividad}" />
 		<br />
-		<h:outputLabel id="B" value="#{actividad.tipoActividad}" />
+		<h4>Fecha</h4>
+		<h:outputLabel for="C" />
+		<h:outputText id="C" value="#{actividad.fechaActividad}" />
 		<br />
+		<h4>Hora de inicio</h4>
+		<h:outputLabel for="D" />
+		<h:outputText id="D" value="#{actividad.horaInicio}" />
 		<br />
-		<h:outputLabel id="C" value="#{actividad.fechaActividad}" />
+		<h4>Hora de finalizacion</h4>
+		<h:outputLabel for="E" />
+		<h:outputText id="E" value="#{actividad.horaFinal}" />
 		<br />
-		<br />
-		<h:outputLabel id="D" value="#{actividad.horaInicio}" />
-		<br />
-		<br />
-		<h:outputLabel id="E" value="#{actividad.horaFinal}" />
-		<br />
-		<br />
-		<h:outputLabel id="I" value="#{actividad.descripcionActividad}" />
+		<h4>Descripcion</h4>
+		<h:outputLabel for="I" />
+		<h:outputText id="I" value="#{actividad.descripcionActividad}" />
 	</h:panelGrid>
+<h:form>
 	<h3>Quiero asistir a esta actividad</h3>
-	<h:commandButton id="registrar1" action="#{actividadController.asignarActividad()}" value="Participar" />
+	 Esta es la activida:  <h:inputText id="ID2" value="#{actividad.nombreActividad}"/><br></br><br></br>
+	 Ingrese su cedula:  <h:inputText id="ID" value="#{asistente.cedula}"/><br></br><br></br>
+	 
+	<h:commandButton id="registrar1Z" action="#{actividadController.asignarActividad()}" value="Participar" />
+	
 	<h3>No quiero asistir a esta actividad</h3>
 	<h:commandButton id="registrar2" action="registrar-Participacion.xhtml" value="Regresar" />
+	</h:form>	
 </h:body> 
 </html>
