@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
@@ -17,6 +18,14 @@ import conexion.CRUD;
 @ManagedBean
 
 public class ActividadController {
+	
+	public void selectOneMenuListener(ValueChangeEvent event) {
+	    //This will return you the newly selected
+	    //value as an object. You'll have to cast it.
+	    Object newValue = event.getNewValue(); 
+	    //The rest of your processing logic goes here...
+	}
+	
 	
 	public String btnRegistro() {
 		return"registro-Actividad.xhtml";
@@ -33,19 +42,21 @@ public class ActividadController {
 		Bloque bloque = context.getApplication().evaluateExpressionGet(context, "#{bloque}", Bloque.class);
 		Actividad actividad = new Actividad();
 		actividad.setNombresA(crud.select_Bloque_actividad(bloque.getTematica()));
-		
 		System.out.println("look: "+bloque.getTematica()+" "+actividad.getNombresA().get(0));
 		
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
 		
-		return"elegirActividad.xhtml";
+		return"elegirActividad.xhtml?faces-redirect=false";
 	}
 	
 	public String verActividad() throws SQLException {
 		// get the user values from the input form.
 		FacesContext context = FacesContext.getCurrentInstance();
 		Actividad actividad = context.getApplication().evaluateExpressionGet(context, "#{actividad}", Actividad.class);
+		System.out.println("resultado: "+actividad.getNombresA().get(0));
+		
+		//Set the atributes
 		CRUD crud = new CRUD();
 		ArrayList<String> temp = crud.select_Actividades(actividad.getNombreActividad());
 		actividad.setTipoActividad(temp.get(0));
@@ -53,6 +64,7 @@ public class ActividadController {
 		actividad.setHoraInicio(temp.get(3));
 		actividad.setHoraFinal(temp.get(4));
 		actividad.setDescripcionActividad(temp.get(5));
+		System.out.println("resultado: "+actividad.getNombreActividad()+" "+actividad.getTipoActividad());
 		
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);

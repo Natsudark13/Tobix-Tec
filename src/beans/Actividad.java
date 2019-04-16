@@ -2,15 +2,16 @@ package beans;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.model.ArrayDataModel;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
 import conexion.CRUD;
 @ManagedBean
+@ViewScoped
 public class Actividad {
 	private String nombreActividad;
 	private String tipoActividad;
@@ -41,6 +42,7 @@ public class Actividad {
 		return nombresA.get(ndx_);
 	}
 	
+	
 	public ArrayList<String> getNombresA() {
 		return nombresA;
 	}
@@ -48,6 +50,7 @@ public class Actividad {
 	public void setNombresA(ArrayList<String> nombresA) {
 		this.nombresA = nombresA;
 	}
+
 	public void registrarActividad() throws SQLException {
 		CRUD crud = new CRUD();
 		crud.insertActivity(tipoActividad, nombreActividad, fechaActividad, horaInicio, horaFinal, descripcionActividad);

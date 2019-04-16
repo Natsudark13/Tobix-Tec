@@ -10,15 +10,15 @@
 
 	<h1>Proceso de registro de participación en una actividad</h1>
 	<h4>Por favor, eliga la actividad que desea consultar: </h4>	
-	<h:form id="actividad">
-	Actividad:  <h:selectOneMenu id="actividad" value ="#{actividad.nombreActividad}" > 
-					<c:forEach items="#{actividad.nombresA}" var="item" varStatus="itemIndex">
-    				<f:selectItem itemValue="#{actividad.getActividadIndex( itemIndex.index ) }"/>
-  					</c:forEach> 
-			 </h:selectOneMenu> <br></br><br></br>
-	<h:commandButton id="registrar" action="#{actividadController.verActividad()}" value="Selecionar Bloque" />
+	<h:form id="actividadE">
+	Actividad: 	<h:selectOneMenu value="#{actividad.nombreActividad}">
+    				<f:selectItems value="#{actividad.nombresA}" />
+				</h:selectOneMenu>
+	<br></br><br></br>
+	
+	<h:commandButton id="registrarCC" action="#{actividadController.verActividad()}" value="Selecionar actividad" />
 	</h:form>
-
+	
 
 
 </body> 
