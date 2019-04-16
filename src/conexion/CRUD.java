@@ -271,6 +271,20 @@ public class CRUD {
         return description;
     }
 	
+	public String select_correo(int id) throws SQLException {
+	 	Connection con = db.openConnection();
+	 	Statement stmt = con.createStatement();
+        String sql = "Select email from TOBIX_USER where USERID = "+id+"";
+        String email;
+	 	try(ResultSet rs = stmt.executeQuery(sql)) {
+        
+	 		rs.next();
+	 		email = rs.getString("email");
+            
+	 	}
+        con.close();
+        return email;
+    }
 	
 	public ArrayList<Integer> select_IDUsuarios_Actividad(String nameActivity) throws SQLException {
 	 	Connection con = db.openConnection();

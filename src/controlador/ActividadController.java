@@ -8,11 +8,14 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 
 import beans.Actividad;
 import beans.Asistente;
 import beans.Bloque;
 import beans.Encargado;
+import beans.EnvioCorreo;
 import conexion.CRUD;
 
 
@@ -75,7 +78,7 @@ public class ActividadController {
 		return"verActividad.xhtml";
 	}
 	
-	public String asignarActividad() throws SQLException {
+	public String asignarActividad() throws SQLException, AddressException, MessagingException {
 		// get the user values from the input form.
 		FacesContext context = FacesContext.getCurrentInstance();
 		
@@ -83,9 +86,21 @@ public class ActividadController {
 		Actividad actividad = context.getApplication().evaluateExpressionGet(context, "#{actividad}", Actividad.class);
 		Asistente asistente = context.getApplication().evaluateExpressionGet(context, "#{asistente}", Asistente.class);
 		
-		System.out.println("resultado: "+actividad.getNombreActividad());
+		System.out.println("resultado ZXZ: "+actividad.getNombreActividad()+" "+asistente.getCorreo());
 	    actividad.registrarActividad_Asistente(asistente.getCedula());
-		
+	    CRUD crud = new CRUD();
+	    String correoR = crud.select_correo(asistente.getCedula());
+	    
+	   /* String[] pDetallesActividad = {actividad.getNombreActividad(),actividad.getFechaActividad(),actividad.getHoraInicio(),actividad.getHoraFinal(),actividad.getDescripcionActividad()};
+	    
+	    
+	    
+	    EnvioCorreo correo = new EnvioCorreo();
+		correo.setMailServerProperties();
+		correo.crearCorreoComprobante(correoR,pDetallesActividad);
+		correo.enviarCorreo();
+	    */
+	    
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
 		
@@ -120,7 +135,7 @@ public class ActividadController {
 		FacesContext context = FacesContext.getCurrentInstance();
 		int contador = 0;
 		ArrayList<Actividad> actividades = new ArrayList<>();
-		Actividad actividAad = new Actividad();
+		Actividad actividad = new Actividad();
 		try {
 			System.out.println("Entra al while");
 			ArrayList<String> temp = crud.select_ALL_Actividades();
