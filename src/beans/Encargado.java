@@ -14,12 +14,6 @@ public class Encargado extends Usuario {
 	private int experiencia;
 	private String institucionProcedencia;
 	private ArrayList<Integer> listaID;
-	
-	/*public Encargado (String pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo, int pExperiencia, String pInstitucionProcedencia){
-		super (pCedula, pNombre, pPrimerApellido, pSegundoApellido, pSexo, pCorreo);
-		setExperiencia(pExperiencia);
-		setInstitucionProcedencia(pInstitucionProcedencia);
-	}*/
 
 	public Encargado () {
 		super();
@@ -37,8 +31,7 @@ public class Encargado extends Usuario {
 		crud.insertSupervisor(this.cedula, this.sexo, this.correo, this.nombre, this.primerApellido, this.segundoApellido, this.experiencia, this.institucionProcedencia);
 	}
 	
-	
-	
+		
 	public ArrayList<Integer> getListaID() {
 		return listaID;
 	}

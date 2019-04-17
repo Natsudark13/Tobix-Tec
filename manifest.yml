@@ -1,0 +1,8 @@
+---
+applications:
+- name: Tobix-Tec
+  memory: 512M
+  host: Tobix-Tec
+  domain: mybluemix.net
+  services:
+  - Db2-tv

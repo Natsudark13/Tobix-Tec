@@ -29,13 +29,6 @@ public class Bloque {
 		}
 	}
 	
-	/*public Bloque(String pTematica, String pDescripcionTematica, Date pFechaBloque, String pFranjaHoraria){
-		setTematica(pTematica);
-		setDescripcionTematica(pDescripcionTematica);
-		setFechaBloque(pFechaBloque);
-		setFranjaHoraria(pFranjaHoraria);
-	}*/
-	
 	public void registrarBloque() throws SQLException {
 		CRUD crud = new CRUD();
 		crud.insertBlock(tematica, descripcionTematica, fechaBloque, franjaHoraria);

@@ -12,15 +12,6 @@ public class Usuario {
 	protected String segundoApellido;
 	protected String sexo;
 	protected String correo;
-	
-	/*public Usuario (int pCedula, String pNombre, String pPrimerApellido, String pSegundoApellido, String pSexo, String pCorreo){
-		setCedula(pCedula);
-		setNombre(pNombre);
-		setPrimerApellido(pPrimerApellido);
-		setSegundoApellido(pSegundoApellido);
-		setSexo(pSexo);
-		setCorreo(pCorreo);
-	}*/
 
 	public Usuario() {
 		

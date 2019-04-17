@@ -157,9 +157,8 @@ public class Actividad {
 		
 	}
 	
-	public String registrarEncargado(Usuario pEncargado){
+	public void registrarEncargado(Usuario pEncargado){
 		encargados.add(pEncargado);
-		return "Encargado registrado";
 	}
 	
 	public ArrayList<Comentario> getComentarios() {

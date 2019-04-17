@@ -21,19 +21,16 @@ import javax.mail.util.ByteArrayDataSource;
 
 public class EnvioCorreo {
 
-	Properties emailProperties;
-	Session mailSession;
-	MimeMessage emailMessage;
+	public Properties emailProperties;
+	public Session mailSession;
+	public MimeMessage emailMessage;
 	
-	String emailHost = "smtp.gmail.com";
-	String fromUser = "actividadestob@gmail.com";
-	String fromUserEmailPassword = "Proyecto2019";
+	private String emailHost = "smtp.gmail.com";
+	private String fromUser = "actividadestob@gmail.com";
+	private String fromUserEmailPassword = "Proyecto2019";
 
 	public static void main(String args[]) throws AddressException, MessagingException, IOException {
 		String pCorreoRecipiente = "<brandon.sce@gmail.com>";
-		//String pCorreoRecipiente = "<Masissara12@gmail.com>";
-		//String pCorreoRecipiente = "<sergiozelos@gmail.com>";
-		//String pCorreoRecipiente = "<alejandro.r.13@hotmail.com>";
 		String pNombreActividad = "Cloud Computing";
 		String pFechaActividad = "15/04/2019";
 		String pHoraActividad = "11:00 - 13:00";
@@ -43,8 +40,6 @@ public class EnvioCorreo {
 		
 		EnvioCorreo correo = new EnvioCorreo();
 		correo.setMailServerProperties();
-		//correo.crearCorreoConfirmacion(pCorreoRecipiente,pDetallesActividad);
-		//correo.crearCorreoComprobante(pCorreoRecipiente,pDetallesActividad);
 		correo.generarInvitacion(pCorreoRecipiente,pDetallesActividad);
 		correo.enviarCorreo();
 	}
@@ -88,9 +83,6 @@ public class EnvioCorreo {
 		emailMessage.addHeaderLine("component=VEVENT");
 		emailMessage.setSubject("Actividad Cloud Computing TOB");
 		emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(pCorreoRecipiente));
-		//emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(pCorreoRecipiente));
-		//emailMessage.setSubject(pTituloCorreo);
-		//emailMessage.setContent(pTextoCorreo, "text/html");
 		
 		String pTextoCorreo = "Bienvenido al TOB! Enviamos una invitacion formal para su participación a la actividad llamada "+pDetallesActividad[0]+" la cual se realizará el "+pDetallesActividad[1]+" en horario de "+pDetallesActividad[2]+". El encargado de la actividad será "+pDetallesActividad[3]+". Te esperamos!";
 
@@ -130,11 +122,9 @@ public class EnvioCorreo {
         // Fill the message
         messageBodyPart.setHeader("Content-Class", "urn:content-classes:calendarmessage");
         messageBodyPart.setHeader("Content-ID","calendar_message");
-        //messageBodyPart.setContent(pTextoCorreo, "text/html; charset=utf-8");
         messageBodyPart.setContent(pTextoCorreo, "text/html");
         messageBodyPart.setDataHandler(new DataHandler(
         new ByteArrayDataSource(buffer.toString(), "text/calendar")));//very important
-
 
         // Create a Multipart
         Multipart multipart = new MimeMultipart();
@@ -142,20 +132,11 @@ public class EnvioCorreo {
         // Add part one
         multipart.addBodyPart(messageBodyPart);
 
-
-
         // Put parts in message
         emailMessage.setContent(multipart);
-        //emailMessage.setContent(multipart, "text/html; charset=utf-8");
 	}
 	
-	//En caso de ser una lista de correos.
-	/*String[] toEmails = { pCorreoRecipiente };
-	for (int i = 0; i < toEmails.length; i++) {
-		emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmails[i]));
-	}*/
-	
-	
+
 	public void enviarCorreo() throws AddressException, MessagingException {
 		Transport transport = mailSession.getTransport("smtp");
 		transport.connect(emailHost, fromUser, fromUserEmailPassword);

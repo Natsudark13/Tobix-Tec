@@ -18,15 +18,15 @@ public class Comentario {
 		
 	}
 	
-	public void registrarComentario(String ActivityName) throws SQLException {
+	public void registrarComentario(String pActivityName) throws SQLException {
 		CRUD crud = new CRUD();
-		crud.insertComments( ActivityName, descripcionComentario);
+		crud.insertComments( pActivityName, descripcionComentario);
 		
 	}
 	
-	public ArrayList<String> verComentarios(String ActivityName) throws SQLException {
+	public ArrayList<String> verComentarios(String pActivityName) throws SQLException {
 		CRUD crud = new CRUD();
-		ArrayList<String> resultado = crud.select_Comments_Actividad(ActivityName);
+		ArrayList<String> resultado = crud.select_Comments_Actividad(pActivityName);
 		return resultado;
 	}
 	
