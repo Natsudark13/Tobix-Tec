@@ -29,7 +29,7 @@ public class EnvioCorreo {
 	String fromUser = "actividadestob@gmail.com";
 	String fromUserEmailPassword = "Proyecto2019";
 
-	public static void main(String args[]) throws AddressException, MessagingException, IOException {
+	/*public static void main(String args[]) throws AddressException, MessagingException, IOException {
 		String pCorreoRecipiente = "<brandon.sce@gmail.com>";
 		//String pCorreoRecipiente = "<Masissara12@gmail.com>";
 		//String pCorreoRecipiente = "<sergiozelos@gmail.com>";
@@ -47,7 +47,7 @@ public class EnvioCorreo {
 		//correo.crearCorreoComprobante(pCorreoRecipiente,pDetallesActividad);
 		correo.generarInvitacion(pCorreoRecipiente,pDetallesActividad);
 		correo.enviarCorreo();
-	}
+	}*/
 
 	public void setMailServerProperties() {
 		String emailPort = "465";//gmail's smtp port
@@ -72,7 +72,6 @@ public class EnvioCorreo {
 	}
 	
 	public void generarCuerpoCorreo(String pCorreoRecipiente, String pTituloCorreo, String pTextoCorreo) throws AddressException, MessagingException {
-		System.out.println(pCorreoRecipiente);
 		mailSession = Session.getDefaultInstance(emailProperties, null);
 		emailMessage = new MimeMessage(mailSession);
 		emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(pCorreoRecipiente));

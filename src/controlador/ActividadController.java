@@ -47,7 +47,7 @@ public class ActividadController {
 		Bloque bloque = context.getApplication().evaluateExpressionGet(context, "#{bloque}", Bloque.class);
 		Actividad actividad = new Actividad();
 		actividad.setNombresA(crud.select_Bloque_actividad(bloque.getTematica()));
-		System.out.println("look: "+bloque.getTematica()+" "+actividad.getNombresA().get(0));
+		
 		
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
@@ -59,7 +59,6 @@ public class ActividadController {
 		// get the user values from the input form.
 		FacesContext context = FacesContext.getCurrentInstance();
 		Actividad actividad = context.getApplication().evaluateExpressionGet(context, "#{actividad}", Actividad.class);
-		System.out.println("resultado: "+actividad.getNombresA().get(0));
 		
 		//Set the atributes
 		CRUD crud = new CRUD();
@@ -69,7 +68,7 @@ public class ActividadController {
 		actividad.setHoraInicio(temp.get(3));
 		actividad.setHoraFinal(temp.get(4));
 		actividad.setDescripcionActividad(temp.get(5));
-		System.out.println("resultado: "+actividad.getNombreActividad()+" "+actividad.getTipoActividad());
+		
 		
 		
 		// put the user object into the POST request 
@@ -86,7 +85,7 @@ public class ActividadController {
 		Actividad actividad = context.getApplication().evaluateExpressionGet(context, "#{actividad}", Actividad.class);
 		Asistente asistente = context.getApplication().evaluateExpressionGet(context, "#{asistente}", Asistente.class);
 		
-		System.out.println("resultado ZXZ: "+actividad.getNombreActividad()+" "+asistente.getCorreo());
+		
 	    actividad.registrarActividad_Asistente(asistente.getCedula());
 	    CRUD crud = new CRUD();
 	    String correoR = crud.select_correo(asistente.getCedula());
@@ -139,11 +138,10 @@ public class ActividadController {
 		try {
 			ArrayList<String> temp = actividad.listaActividadesPorComentarios();
 			while (temp.size()>contador) {
-				System.out.println(temp.get(contador));
+				
 				actividades.add(new Actividad(temp.get(contador),crud.select_Comments_Actividad(temp.get(contador)).size()));
 				contador++;
-				System.out.println("actividades de tama: "+actividades.size());
-				System.out.println("contador sale con: "+contador);
+
 			}
 		DataModel<Actividad> temp2 = new ListDataModel(actividades);
 		actividad.setNombreActividadesModel(temp2);
@@ -166,11 +164,9 @@ public class ActividadController {
 		try {
 			ArrayList<String> temp = actividad.listaActividadesPorUsuarios();
 			while (temp.size()>contador) {
-				System.out.println(temp.get(contador));
+				
 				actividades.add(new Actividad(temp.get(contador), crud.select_IDUsuarios_Actividad(temp.get(contador)).size()));
 				contador++;
-				System.out.println("actividades de tama: "+actividades.size());
-				System.out.println("contador sale con: "+contador);
 			}
 		DataModel<Actividad> temp2 = new ListDataModel(actividades);
 		actividad.setNombreActividadesModel(temp2);

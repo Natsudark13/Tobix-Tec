@@ -31,9 +31,7 @@ public class BloqueController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-				
-		// show the user data in console
-		//System.out.println("look: "+administrador.getCorreo()+" "+administrador.getContrasenaAdministrador());
+
 				
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("bloque", bloque);

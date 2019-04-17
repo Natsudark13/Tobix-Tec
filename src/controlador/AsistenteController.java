@@ -15,7 +15,7 @@ public class AsistenteController {
 		FacesContext context = FacesContext.getCurrentInstance();
 		Asistente asistente = context.getApplication().evaluateExpressionGet(context, "#{asistente}", Asistente.class);
 		// show the user data in console
-		System.out.println("look: "+asistente.getCedula()+" "+asistente.getNombre()+" "+asistente.getPrimerApellido()+" "+asistente.getCorreo()+" "+asistente.getContrasenaAsistente());
+		
 		asistente.crearAsistente();
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("asistente", asistente);
@@ -47,9 +47,6 @@ public class AsistenteController {
 		FacesContext context = FacesContext.getCurrentInstance();
 		Asistente asistente = context.getApplication().evaluateExpressionGet(context, "#{asistente}", Asistente.class);
 	
-		
-		// show the user data in console
-		System.out.println("look: "+asistente.getCorreo()+" "+asistente.getContrasenaAsistente());
 		
 		// put the user object into the POST request 
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("asistente", asistente);

@@ -29,9 +29,7 @@ public class EncargadoController {
 					e.printStackTrace();
 				}	
 						
-				// show the user data in console
-				//System.out.println("look: "+administrador.getCorreo()+" "+administrador.getContrasenaAdministrador());
-						
+				
 				// put the user object into the POST request 
 				FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("encargado", encargado);
 				
