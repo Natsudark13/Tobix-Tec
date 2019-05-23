@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="LIB/httpclient-4.0.3.jar"/>
 	<classpathentry kind="lib" path="LIB/mailapi-1.5.0.jar"/>
 	<classpathentry kind="lib" path="LIB/smtp-1.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Extreme PC/Desktop/IBM-Watson/ibm-watson-7.0.0-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

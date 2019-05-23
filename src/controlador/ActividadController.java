@@ -24,11 +24,20 @@ import conexion.CRUD;
 
 public class ActividadController {
 	
-	public void selectOneMenuListener(ValueChangeEvent event) {
-	    //This will return you the newly selected
-	    //value as an object. You'll have to cast it.
-	    Object newValue = event.getNewValue(); 
-	    //The rest of your processing logic goes here...
+	
+	public String mostrarTodasActividades() throws SQLException {
+		CRUD crud = new CRUD();
+		//FacesContext context = FacesContext.getCurrentInstance();
+		//Bloque bloque = context.getApplication().evaluateExpressionGet(context, "#{bloque}", Bloque.class);
+		Actividad actividad = new Actividad();
+		//actividad.setNombresA(crud.select_Bloque_actividad(bloque.getTematica()));
+		
+		
+		// put the user object into the POST request 
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("actividad", actividad);
+		
+		return"elegirActividad.xhtml?faces-redirect=false";
+		
 	}
 	
 	
